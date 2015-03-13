@@ -822,6 +822,7 @@ namespace FCF_Editor
         private int previousID;
         private string previousType;
         private Point point;
+        private Point mouseDownCoords;
 
         private string charactersDisallowed = "'";
         private string numbersAllowed = "0123456789";
@@ -1175,6 +1176,8 @@ namespace FCF_Editor
                     currentLabel = new Labels(label.Value);
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
+                    mouseDownCoords.X = e.Location.X;
+                    mouseDownCoords.Y = e.Location.Y;
                     break;
                  }
             }
@@ -1191,7 +1194,7 @@ namespace FCF_Editor
             //activeControl.Location = location;
             ((TextBox)sender).SelectionLength = 0;
 
-            CheckControl((TextBox)sender, e.Location);
+            MoveControl((TextBox)sender, new Point(e.Location.X - mouseDownCoords.X, e.Location.Y - mouseDownCoords.Y));
             //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top;
             flowLayout.Refresh();
         }
@@ -2702,38 +2705,20 @@ namespace FCF_Editor
         /// of the mouse cursor, calculates the new location and moves the control to the new location.
         /// </summary>
         /// <param name="PassControl">The control to be moved.</param>
-        /// <param name="MousePoint">The current location of the mouse cursor.</param>
+        /// <param name="MoveOffset">How much to move.</param>
         /// <remarks></remarks>
-
-        private void CheckControl(Control PassControl, Point MousePoint)
+        private void MoveControl(Control PassControl, Point MoveOffset)
         {
-            int MoveX = 0;
-            int MoveY = 0;
-
-            //Get the controls current starting location
-            // we will be moving it from this location to the new one if there is a new one
-            int intNewButtonLocationX = PassControl.Location.X;
-            int intNewButtonLocationY = PassControl.Location.Y;
-
-            //if (MousePoint.X > (PassControl.Width / 2)) MoveX = MousePoint.X;
-            //if (MousePoint.X < (PassControl.Width / 2)) MoveX = MousePoint.X;
-            //if (MousePoint.Y > (PassControl.Height / 2)) MoveY = MousePoint.Y;
-            //if (MousePoint.Y < (PassControl.Height / 2)) MoveY = MousePoint.Y;
-
-            MoveX = MousePoint.X;
-            MoveY = MousePoint.Y;
-
             //No need to perform any of the moving methods if the control isn't moving
-
-            if (!(MoveX == 0 && MoveY == 0))
+            if (!(MoveOffset.X == 0 && MoveOffset.Y == 0))
             {
                 //set the button new x coordinate
-                intNewButtonLocationX += MoveX;
-                intNewButtonLocationY += MoveY;
+                int intNewButtonLocationX = PassControl.Location.X + MoveOffset.X;
+                int intNewButtonLocationY = PassControl.Location.Y + MoveOffset.Y;
 
-                //check for the edge of the client area
-                intNewButtonLocationX = GetEdgeOfWindow(intNewButtonLocationX, this.ClientSize.Width, PassControl.Width, (MoveX > 0));
-                intNewButtonLocationY = GetEdgeOfWindow(intNewButtonLocationY, this.ClientSize.Height, PassControl.Height, (MoveY > 0));
+                //check for top left edge of the client area. Bottom right is infinite because the control auto scrolls.
+                if (intNewButtonLocationX < 5) intNewButtonLocationX = 5;
+                if (intNewButtonLocationY < 5) intNewButtonLocationY = 5;
 
                 //assign new control location
                 PassControl.Location = new Point(intNewButtonLocationX, intNewButtonLocationY);
