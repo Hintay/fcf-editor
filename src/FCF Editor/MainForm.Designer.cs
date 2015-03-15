@@ -270,16 +270,15 @@ namespace FCF_Editor
             // 
             // SC
             // 
-            this.SC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SC.Location = new System.Drawing.Point(0, 24);
+            this.SC.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.SC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SC.Location = new System.Drawing.Point(0, 28);
             this.SC.Name = "SC";
             // 
             // SC.Panel1
             // 
             this.SC.Panel1.AutoScroll = true;
+            this.SC.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.SC.Panel1.Controls.Add(this.resetButton);
             this.SC.Panel1.Controls.Add(this.removeButton);
             this.SC.Panel1.Controls.Add(this.update);
@@ -310,7 +309,7 @@ namespace FCF_Editor
             this.SC.Panel2.ContextMenuStrip = this.addLabelsInPanel;
             this.SC.Panel2.Controls.Add(this.splitContainer1);
             this.SC.Panel2MinSize = 300;
-            this.SC.Size = new System.Drawing.Size(1008, 680);
+            this.SC.Size = new System.Drawing.Size(1008, 676);
             this.SC.SplitterDistance = 321;
             this.SC.TabIndex = 2;
             // 
@@ -339,7 +338,7 @@ namespace FCF_Editor
             this.removeButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.removeButton.Enabled = false;
             this.removeButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.removeButton.Location = new System.Drawing.Point(220, 601);
+            this.removeButton.Location = new System.Drawing.Point(224, 601);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(94, 34);
             this.removeButton.TabIndex = 28;
@@ -355,7 +354,7 @@ namespace FCF_Editor
             this.update.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.update.Location = new System.Drawing.Point(0, 641);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(317, 35);
+            this.update.Size = new System.Drawing.Size(321, 35);
             this.update.TabIndex = 27;
             this.update.Text = "Update";
             this.toolTip.SetToolTip(this.update, "Update your Flow Data!");
@@ -367,7 +366,7 @@ namespace FCF_Editor
             // 
             this.outerlabel_browse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outerlabel_browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.outerlabel_browse.Location = new System.Drawing.Point(256, 119);
+            this.outerlabel_browse.Location = new System.Drawing.Point(260, 119);
             this.outerlabel_browse.Name = "outerlabel_browse";
             this.outerlabel_browse.Size = new System.Drawing.Size(36, 20);
             this.outerlabel_browse.TabIndex = 13;
@@ -386,7 +385,7 @@ namespace FCF_Editor
             this.alternatives.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alternatives.Location = new System.Drawing.Point(3, 200);
             this.alternatives.Name = "alternatives";
-            this.alternatives.Size = new System.Drawing.Size(307, 149);
+            this.alternatives.Size = new System.Drawing.Size(311, 149);
             this.alternatives.TabIndex = 24;
             this.alternatives.TabStop = false;
             this.alternatives.Text = "Alternatives";
@@ -402,14 +401,14 @@ namespace FCF_Editor
             this.properties_alternative_tabs.Name = "properties_alternative_tabs";
             this.properties_alternative_tabs.SelectedIndex = 0;
             this.properties_alternative_tabs.ShowToolTips = true;
-            this.properties_alternative_tabs.Size = new System.Drawing.Size(294, 92);
+            this.properties_alternative_tabs.Size = new System.Drawing.Size(298, 92);
             this.properties_alternative_tabs.TabIndex = 22;
             // 
             // addAlt
             // 
             this.addAlt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addAlt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addAlt.Location = new System.Drawing.Point(269, 113);
+            this.addAlt.Location = new System.Drawing.Point(273, 113);
             this.addAlt.Name = "addAlt";
             this.addAlt.Size = new System.Drawing.Size(30, 29);
             this.addAlt.TabIndex = 23;
@@ -427,7 +426,7 @@ namespace FCF_Editor
             this.flagOperations.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flagOperations.Location = new System.Drawing.Point(3, 390);
             this.flagOperations.Name = "flagOperations";
-            this.flagOperations.Size = new System.Drawing.Size(304, 168);
+            this.flagOperations.Size = new System.Drawing.Size(308, 168);
             this.flagOperations.TabIndex = 23;
             this.flagOperations.TabStop = false;
             this.flagOperations.Text = "Flag Operations";
@@ -437,7 +436,7 @@ namespace FCF_Editor
             // 
             this.addOperationTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addOperationTab.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addOperationTab.Location = new System.Drawing.Point(268, 133);
+            this.addOperationTab.Location = new System.Drawing.Point(272, 133);
             this.addOperationTab.Name = "addOperationTab";
             this.addOperationTab.Size = new System.Drawing.Size(30, 29);
             this.addOperationTab.TabIndex = 24;
@@ -454,7 +453,7 @@ namespace FCF_Editor
             this.properties_operation_tabs.Name = "properties_operation_tabs";
             this.properties_operation_tabs.SelectedIndex = 0;
             this.properties_operation_tabs.ShowToolTips = true;
-            this.properties_operation_tabs.Size = new System.Drawing.Size(291, 103);
+            this.properties_operation_tabs.Size = new System.Drawing.Size(295, 103);
             this.properties_operation_tabs.TabIndex = 22;
             // 
             // checkFlags
@@ -466,7 +465,7 @@ namespace FCF_Editor
             this.checkFlags.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkFlags.Location = new System.Drawing.Point(3, 198);
             this.checkFlags.Name = "checkFlags";
-            this.checkFlags.Size = new System.Drawing.Size(307, 186);
+            this.checkFlags.Size = new System.Drawing.Size(311, 186);
             this.checkFlags.TabIndex = 17;
             this.checkFlags.TabStop = false;
             this.checkFlags.Text = "Check Flags";
@@ -482,14 +481,14 @@ namespace FCF_Editor
             this.properties_check_tabs.Name = "properties_check_tabs";
             this.properties_check_tabs.SelectedIndex = 0;
             this.properties_check_tabs.ShowToolTips = true;
-            this.properties_check_tabs.Size = new System.Drawing.Size(294, 135);
+            this.properties_check_tabs.Size = new System.Drawing.Size(298, 135);
             this.properties_check_tabs.TabIndex = 22;
             // 
             // addCheckTab
             // 
             this.addCheckTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCheckTab.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addCheckTab.Location = new System.Drawing.Point(268, 151);
+            this.addCheckTab.Location = new System.Drawing.Point(272, 151);
             this.addCheckTab.Name = "addCheckTab";
             this.addCheckTab.Size = new System.Drawing.Size(30, 29);
             this.addCheckTab.TabIndex = 23;
@@ -585,7 +584,7 @@ namespace FCF_Editor
             this.label1.Location = new System.Drawing.Point(-2, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 22);
+            this.label1.Size = new System.Drawing.Size(316, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "PROPERTIES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -619,7 +618,7 @@ namespace FCF_Editor
             this.properties_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.properties_title.Location = new System.Drawing.Point(62, 119);
             this.properties_title.Name = "properties_title";
-            this.properties_title.Size = new System.Drawing.Size(188, 23);
+            this.properties_title.Size = new System.Drawing.Size(192, 23);
             this.properties_title.TabIndex = 5;
             this.properties_title.TextChanged += new System.EventHandler(this.properties_title_TextChanged);
             // 
@@ -739,7 +738,7 @@ namespace FCF_Editor
             this.log.Name = "log";
             this.log.ReadOnly = true;
             this.log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.log.Size = new System.Drawing.Size(260, 644);
+            this.log.Size = new System.Drawing.Size(264, 644);
             this.log.TabIndex = 6;
             this.log.WordWrap = false;
             this.log.KeyDown += new System.Windows.Forms.KeyEventHandler(this.log_KeyDown);
@@ -751,7 +750,7 @@ namespace FCF_Editor
             this.comment_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.comment_box.Location = new System.Drawing.Point(3, 5);
             this.comment_box.Name = "comment_box";
-            this.comment_box.Size = new System.Drawing.Size(252, 23);
+            this.comment_box.Size = new System.Drawing.Size(256, 23);
             this.comment_box.TabIndex = 7;
             this.toolTip.SetToolTip(this.comment_box, "Comment for this flow chart!");
             // 
@@ -792,7 +791,7 @@ namespace FCF_Editor
             // 
             // splitContainer1
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -801,13 +800,15 @@ namespace FCF_Editor
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel1.Controls.Add(this.flowLayout);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel2.Controls.Add(this.log);
             this.splitContainer1.Panel2.Controls.Add(this.comment_box);
-            this.splitContainer1.Size = new System.Drawing.Size(683, 680);
+            this.splitContainer1.Size = new System.Drawing.Size(683, 676);
             this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 10;
             // 
@@ -819,9 +820,9 @@ namespace FCF_Editor
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.SC);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.SC);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
