@@ -3,10 +3,10 @@ FCF Editor is a tool designed to edit flowchart files (file extension "fcf"), us
 
 ## Features
 * Easy to use interface!
-* 3 ways to open the files: Double-clicking .fcf files, dragging and dropping .fcf files on the program window, or using Ctrl + O/File->Open to browse to the file.
-* Move-able Flow elements!
-* Ability to edit SCENEs, SELECTERs and OUTERLABELs.
-* Requires variable.txt to be able to select flags.
+* Can edit both FSN and FHA .fcf files, with their respective variables data!
+* Movable Flow elements!
+* Ability to edit SCENEs, SELECTERs and OUTERLABELs!
+* Easy to add custom variables and their meanings by creating a variables.txt file!
 
 ## Credits
 * Idea: JackTheInfinite

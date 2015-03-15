@@ -18,6 +18,7 @@ namespace FCF_Editor
         [DllImport("user32.dll")]
         static extern bool HideCaret(IntPtr hWnd);
 
+        # region PROPERTIES
         public string type;
         public int id;
         public string title;
@@ -38,9 +39,11 @@ namespace FCF_Editor
         /// 1: Target Jump ID, jumped to when the paired choice is selected.
         /// </remarks>
         public List<String[]> alts;
-
         public string file;
         public int target;
+
+        //public List<String[]> checks; // For FHA SELECTERs
+        # endregion
 
         /// <summary>
         /// Creates a Scene Object.
@@ -94,6 +97,11 @@ namespace FCF_Editor
             this.target = target;
         }
 
+        /// <summary>
+        /// Copies ALL the properties fields from another 'Labels' class object.
+        /// </summary>
+        /// <remarks>Assigns all the properties of the passed parameter to the new object.</remarks>
+        /// <param name="label">The Labels object to clone.</param>
         public Labels(Labels label)
         {
             this.id = label.id;
@@ -105,9 +113,41 @@ namespace FCF_Editor
             this.top = label.top;
             this.right = label.right;
             this.bottom = label.bottom;
-            this.alts = label.alts;
-            this.jumps = label.jumps;
-            this.flagOperations = label.flagOperations;
+            if (label.alts != null)
+            {
+                this.alts = new List<string[]>();
+                for (int i = 0; i < label.alts.Count; i++) this.alts.Add(label.alts[i].Clone() as string[]);
+            }
+
+            if (label.jumps != null)
+            {
+                this.jumps = new List<string[]>();
+                for (int i = 0; i < label.jumps.Count; i++) this.jumps.Add(label.jumps[i].Clone() as string[]);
+            }
+
+            if (label.flagOperations != null)
+            {
+                this.flagOperations = new List<string[]>();
+                for (int i = 0; i < label.flagOperations.Count; i++) this.flagOperations.Add(label.flagOperations[i].Clone() as string[]);
+            }
+        }
+
+        /// <summary>
+        /// Creates a unique SELECTER Object for Fate/hollow Ataraxia.
+        /// </summary>
+        /// <remarks>Assigns all the passed parameters to the public variables.</remarks>
+        /// <param name="type">Specifies the Type. It's "SELECTER" in this case.</param>
+        public Labels(string type, int id, string title, int left, int top, int right, int bottom, List<String[]> alts, List<string[]> check)
+        {
+            this.type = type;
+            this.id = id;
+            this.title = title;
+            this.left = left;
+            this.top = top;
+            this.right = right;
+            this.bottom = bottom;
+            this.alts = alts;
+            this.jumps = check;
         }
 
         /// <summary>

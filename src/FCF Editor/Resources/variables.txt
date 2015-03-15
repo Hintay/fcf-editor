@@ -1,4 +1,5 @@
-﻿セイバー好感度|Saber's Point
+﻿==>FSN
+セイバー好感度|Saber's Point
 桜好感度|Sakura's Point
 凛好感度|Rin's Point
 イリヤ好感度|Illya's Point
@@ -23,3 +24,17 @@ g凛クリア|Rin Route Cleared?
 不断の咎|Blame Persistence
 限界破裂|Limit Burst
 ghentai|H-scenes
+
+==>FHA
+カレン１|Caren I
+カレン２|Caren II
+カレン３|Caren III
+カレン４|Caren IV
+カレン５|Caren V
+夜の聖杯戦争６|Holy Grail War -> Night 6
+双子館の殺人|Murder-related?
+最後の守護者|Last guardian
+天の杯|Heaven's cup
+天の逆月|Heaven of Gyakutsuki(?)
+ロンドンの土産話|Souvenir story of London
+風雲イリヤ城|Storm Illya Castle!

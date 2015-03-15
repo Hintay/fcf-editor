@@ -2,10 +2,10 @@ Flowchart Editor is a tool designed to edit .fcf files, used by the TypeMoon mod
 
 Features:
 * Easy to use interface!
-* 3 ways to open the files: Double-clicking .fcf files, dragging and dropping .fcf files on the program window, or using Ctrl + O/File->Open to browse to the file.
+* Can edit both FSN and FHA .fcf files, with their respective variables data!
 * Move-able Flow elements!
-* Ability to edit SCENEs, SELECTERs and OUTERLABELs.
-* Requires variable.txt to be able to select flags.
+* Ability to edit SCENEs, SELECTERs and OUTERLABELs!
+* Easy to add custom variables and their meanings by creating a variables.txt file!
 
 Credits:
 * Idea: JackTheInfinite

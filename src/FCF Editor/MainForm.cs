@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using Arrows;
 
@@ -14,807 +15,6 @@ namespace FCF_Editor
 {
     public partial class MainForm : Form
     {
-        # region DESIGNER
-
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>ComboBox
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCENEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.sELECTERToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.oUTERLABELToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.log = new System.Windows.Forms.TextBox();
-            this.SC = new System.Windows.Forms.SplitContainer();
-            this.update = new System.Windows.Forms.Button();
-            this.outerlabel_browse = new System.Windows.Forms.Button();
-            this.alternatives = new System.Windows.Forms.GroupBox();
-            this.properties_alternative_tabs = new System.Windows.Forms.TabControl();
-            this.addAlt = new System.Windows.Forms.Button();
-            this.flagOperations = new System.Windows.Forms.GroupBox();
-            this.addOperationTab = new System.Windows.Forms.Button();
-            this.properties_operation_tabs = new System.Windows.Forms.TabControl();
-            this.checkFlags = new System.Windows.Forms.GroupBox();
-            this.properties_check_tabs = new System.Windows.Forms.TabControl();
-            this.addCheckTab = new System.Windows.Forms.Button();
-            this.properties_jumpTarget = new System.Windows.Forms.ComboBox();
-            this.properties_jumpTarget_label = new System.Windows.Forms.Label();
-            this.properties_type = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.properties_id = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.properties_title_label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.properties_title = new System.Windows.Forms.TextBox();
-            this.properties_x = new System.Windows.Forms.TextBox();
-            this.properties_y = new System.Windows.Forms.TextBox();
-            this.properties_file_target = new System.Windows.Forms.ComboBox();
-            this.addLabelsInPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCENEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sELECTERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oUTERLABELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flowLayout = new System.Windows.Forms.Panel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.outerlabel_open_target = new System.Windows.Forms.OpenFileDialog();
-            this.comment_box = new System.Windows.Forms.TextBox();
-            this.saveFile = new System.Windows.Forms.SaveFileDialog();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.debug = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SC)).BeginInit();
-            this.SC.Panel1.SuspendLayout();
-            this.SC.Panel2.SuspendLayout();
-            this.SC.SuspendLayout();
-            this.alternatives.SuspendLayout();
-            this.flagOperations.SuspendLayout();
-            this.checkFlags.SuspendLayout();
-            this.addLabelsInPanel.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem1,
-            this.toolStripSeparator2,
-            this.optionsToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // addToolStripMenuItem1
-            // 
-            this.addToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sCENEToolStripMenuItem1,
-            this.sELECTERToolStripMenuItem1,
-            this.oUTERLABELToolStripMenuItem1});
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.addToolStripMenuItem1.Text = "Add";
-            // 
-            // sCENEToolStripMenuItem1
-            // 
-            this.sCENEToolStripMenuItem1.Name = "sCENEToolStripMenuItem1";
-            this.sCENEToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
-            this.sCENEToolStripMenuItem1.Text = "SCENE";
-            this.sCENEToolStripMenuItem1.Click += new System.EventHandler(this.sCENEToolStripMenuItem_Click);
-            // 
-            // sELECTERToolStripMenuItem1
-            // 
-            this.sELECTERToolStripMenuItem1.Name = "sELECTERToolStripMenuItem1";
-            this.sELECTERToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
-            this.sELECTERToolStripMenuItem1.Text = "SELECTER";
-            this.sELECTERToolStripMenuItem1.Click += new System.EventHandler(this.sELECTERToolStripMenuItem_Click);
-            // 
-            // oUTERLABELToolStripMenuItem1
-            // 
-            this.oUTERLABELToolStripMenuItem1.Name = "oUTERLABELToolStripMenuItem1";
-            this.oUTERLABELToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
-            this.oUTERLABELToolStripMenuItem1.Text = "OUTERLABEL";
-            this.oUTERLABELToolStripMenuItem1.Click += new System.EventHandler(this.oUTERLABELToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(113, 6);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "&About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // openFile
-            // 
-            this.openFile.DefaultExt = "fcf";
-            this.openFile.FileName = "*.fcf";
-            this.openFile.Filter = "FCF files|*.fcf";
-            this.openFile.Title = "Read the Flowchart data";
-            this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.openFile_FileOk);
-            // 
-            // log
-            // 
-            this.log.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.log.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.log.HideSelection = false;
-            this.log.Location = new System.Drawing.Point(739, 45);
-            this.log.Multiline = true;
-            this.log.Name = "log";
-            this.log.ReadOnly = true;
-            this.log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.log.Size = new System.Drawing.Size(268, 662);
-            this.log.TabIndex = 1;
-            this.log.WordWrap = false;
-            this.log.KeyDown += new System.Windows.Forms.KeyEventHandler(this.log_KeyDown);
-            // 
-            // SC
-            // 
-            this.SC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SC.Location = new System.Drawing.Point(0, 24);
-            this.SC.Name = "SC";
-            // 
-            // SC.Panel1
-            // 
-            this.SC.Panel1.AutoScroll = true;
-            this.SC.Panel1.Controls.Add(this.update);
-            this.SC.Panel1.Controls.Add(this.outerlabel_browse);
-            this.SC.Panel1.Controls.Add(this.alternatives);
-            this.SC.Panel1.Controls.Add(this.flagOperations);
-            this.SC.Panel1.Controls.Add(this.checkFlags);
-            this.SC.Panel1.Controls.Add(this.properties_jumpTarget);
-            this.SC.Panel1.Controls.Add(this.properties_jumpTarget_label);
-            this.SC.Panel1.Controls.Add(this.properties_type);
-            this.SC.Panel1.Controls.Add(this.label6);
-            this.SC.Panel1.Controls.Add(this.properties_id);
-            this.SC.Panel1.Controls.Add(this.label3);
-            this.SC.Panel1.Controls.Add(this.properties_title_label);
-            this.SC.Panel1.Controls.Add(this.label1);
-            this.SC.Panel1.Controls.Add(this.label4);
-            this.SC.Panel1.Controls.Add(this.label5);
-            this.SC.Panel1.Controls.Add(this.properties_title);
-            this.SC.Panel1.Controls.Add(this.properties_x);
-            this.SC.Panel1.Controls.Add(this.properties_y);
-            this.SC.Panel1.Controls.Add(this.properties_file_target);
-            this.SC.Panel1MinSize = 200;
-            // 
-            // SC.Panel2
-            // 
-            this.SC.Panel2.AllowDrop = true;
-            this.SC.Panel2.AutoScroll = true;
-            this.SC.Panel2.ContextMenuStrip = this.addLabelsInPanel;
-            this.SC.Panel2.Controls.Add(this.flowLayout);
-            this.SC.Panel2MinSize = 300;
-            this.SC.Size = new System.Drawing.Size(733, 683);
-            this.SC.SplitterDistance = 303;
-            this.SC.TabIndex = 2;
-            // 
-            // update
-            // 
-            this.update.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.update.Enabled = false;
-            this.update.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.update.Location = new System.Drawing.Point(0, 644);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(299, 35);
-            this.update.TabIndex = 27;
-            this.update.Text = "Update";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Visible = false;
-            this.update.EnabledChanged += new System.EventHandler(this.update_EnabledChanged);
-            this.update.Click += new System.EventHandler(this.update_Click);
-            // 
-            // outerlabel_browse
-            // 
-            this.outerlabel_browse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.outerlabel_browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.outerlabel_browse.Location = new System.Drawing.Point(245, 119);
-            this.outerlabel_browse.Name = "outerlabel_browse";
-            this.outerlabel_browse.Size = new System.Drawing.Size(36, 20);
-            this.outerlabel_browse.TabIndex = 13;
-            this.outerlabel_browse.Text = "...";
-            this.outerlabel_browse.UseCompatibleTextRendering = true;
-            this.outerlabel_browse.UseVisualStyleBackColor = true;
-            this.outerlabel_browse.Visible = false;
-            this.outerlabel_browse.Click += new System.EventHandler(this.outerlabel_browse_Click);
-            // 
-            // alternatives
-            // 
-            this.alternatives.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.alternatives.Controls.Add(this.properties_alternative_tabs);
-            this.alternatives.Controls.Add(this.addAlt);
-            this.alternatives.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alternatives.Location = new System.Drawing.Point(3, 200);
-            this.alternatives.Name = "alternatives";
-            this.alternatives.Size = new System.Drawing.Size(296, 149);
-            this.alternatives.TabIndex = 24;
-            this.alternatives.TabStop = false;
-            this.alternatives.Text = "Alternatives";
-            this.alternatives.Visible = false;
-            // 
-            // properties_alternative_tabs
-            // 
-            this.properties_alternative_tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.properties_alternative_tabs.HotTrack = true;
-            this.properties_alternative_tabs.Location = new System.Drawing.Point(7, 16);
-            this.properties_alternative_tabs.Name = "properties_alternative_tabs";
-            this.properties_alternative_tabs.SelectedIndex = 0;
-            this.properties_alternative_tabs.ShowToolTips = true;
-            this.properties_alternative_tabs.Size = new System.Drawing.Size(283, 92);
-            this.properties_alternative_tabs.TabIndex = 22;
-            // 
-            // addAlt
-            // 
-            this.addAlt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAlt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addAlt.Location = new System.Drawing.Point(258, 113);
-            this.addAlt.Name = "addAlt";
-            this.addAlt.Size = new System.Drawing.Size(30, 29);
-            this.addAlt.TabIndex = 23;
-            this.addAlt.Text = "+";
-            this.addAlt.UseVisualStyleBackColor = true;
-            this.addAlt.Click += new System.EventHandler(this.addAlt_Click);
-            // 
-            // flagOperations
-            // 
-            this.flagOperations.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flagOperations.Controls.Add(this.addOperationTab);
-            this.flagOperations.Controls.Add(this.properties_operation_tabs);
-            this.flagOperations.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flagOperations.Location = new System.Drawing.Point(3, 390);
-            this.flagOperations.Name = "flagOperations";
-            this.flagOperations.Size = new System.Drawing.Size(293, 168);
-            this.flagOperations.TabIndex = 23;
-            this.flagOperations.TabStop = false;
-            this.flagOperations.Text = "Flag Operations";
-            this.flagOperations.Visible = false;
-            // 
-            // addOperationTab
-            // 
-            this.addOperationTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addOperationTab.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addOperationTab.Location = new System.Drawing.Point(257, 133);
-            this.addOperationTab.Name = "addOperationTab";
-            this.addOperationTab.Size = new System.Drawing.Size(30, 29);
-            this.addOperationTab.TabIndex = 24;
-            this.addOperationTab.Text = "+";
-            this.addOperationTab.UseVisualStyleBackColor = true;
-            this.addOperationTab.Click += new System.EventHandler(this.addOperationTab_Click);
-            // 
-            // properties_operation_tabs
-            // 
-            this.properties_operation_tabs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.properties_operation_tabs.Location = new System.Drawing.Point(7, 26);
-            this.properties_operation_tabs.Name = "properties_operation_tabs";
-            this.properties_operation_tabs.SelectedIndex = 0;
-            this.properties_operation_tabs.ShowToolTips = true;
-            this.properties_operation_tabs.Size = new System.Drawing.Size(280, 103);
-            this.properties_operation_tabs.TabIndex = 22;
-            // 
-            // checkFlags
-            // 
-            this.checkFlags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkFlags.Controls.Add(this.properties_check_tabs);
-            this.checkFlags.Controls.Add(this.addCheckTab);
-            this.checkFlags.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkFlags.Location = new System.Drawing.Point(3, 198);
-            this.checkFlags.Name = "checkFlags";
-            this.checkFlags.Size = new System.Drawing.Size(296, 186);
-            this.checkFlags.TabIndex = 17;
-            this.checkFlags.TabStop = false;
-            this.checkFlags.Text = "Check Flags";
-            this.checkFlags.Visible = false;
-            // 
-            // properties_check_tabs
-            // 
-            this.properties_check_tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.properties_check_tabs.HotTrack = true;
-            this.properties_check_tabs.Location = new System.Drawing.Point(7, 16);
-            this.properties_check_tabs.Name = "properties_check_tabs";
-            this.properties_check_tabs.SelectedIndex = 0;
-            this.properties_check_tabs.ShowToolTips = true;
-            this.properties_check_tabs.Size = new System.Drawing.Size(283, 135);
-            this.properties_check_tabs.TabIndex = 22;
-            // 
-            // addCheckTab
-            // 
-            this.addCheckTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addCheckTab.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.addCheckTab.Location = new System.Drawing.Point(257, 151);
-            this.addCheckTab.Name = "addCheckTab";
-            this.addCheckTab.Size = new System.Drawing.Size(30, 29);
-            this.addCheckTab.TabIndex = 23;
-            this.addCheckTab.Text = "+";
-            this.addCheckTab.UseVisualStyleBackColor = true;
-            this.addCheckTab.Click += new System.EventHandler(this.addCheckTab_Click);
-            // 
-            // properties_jumpTarget
-            // 
-            this.properties_jumpTarget.Enabled = false;
-            this.properties_jumpTarget.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.properties_jumpTarget.FormattingEnabled = true;
-            this.properties_jumpTarget.Location = new System.Drawing.Point(142, 173);
-            this.properties_jumpTarget.Name = "properties_jumpTarget";
-            this.properties_jumpTarget.Size = new System.Drawing.Size(60, 21);
-            this.properties_jumpTarget.TabIndex = 1;
-            this.properties_jumpTarget.SelectionChangeCommitted += new System.EventHandler(this.properties_jumpTarget_SelectionChangeCommitted);
-            // 
-            // properties_jumpTarget_label
-            // 
-            this.properties_jumpTarget_label.AutoSize = true;
-            this.properties_jumpTarget_label.Cursor = System.Windows.Forms.Cursors.Default;
-            this.properties_jumpTarget_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.properties_jumpTarget_label.Location = new System.Drawing.Point(7, 177);
-            this.properties_jumpTarget_label.Name = "properties_jumpTarget_label";
-            this.properties_jumpTarget_label.Size = new System.Drawing.Size(126, 13);
-            this.properties_jumpTarget_label.TabIndex = 11;
-            this.properties_jumpTarget_label.Text = "Default Jump Target:";
-            // 
-            // properties_type
-            // 
-            this.properties_type.Enabled = false;
-            this.properties_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.properties_type.FormattingEnabled = true;
-            this.properties_type.Items.AddRange(new object[] {
-            "SCENE",
-            "SELECTER",
-            "OUTERLABEL"});
-            this.properties_type.Location = new System.Drawing.Point(62, 92);
-            this.properties_type.Name = "properties_type";
-            this.properties_type.Size = new System.Drawing.Size(124, 21);
-            this.properties_type.TabIndex = 6;
-            this.properties_type.SelectionChangeCommitted += new System.EventHandler(this.properties_type_SelectionChangeCommitted);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(7, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Type:";
-            // 
-            // properties_id
-            // 
-            this.properties_id.Enabled = false;
-            this.properties_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.properties_id.Location = new System.Drawing.Point(62, 63);
-            this.properties_id.Name = "properties_id";
-            this.properties_id.Size = new System.Drawing.Size(34, 20);
-            this.properties_id.TabIndex = 7;
-            this.properties_id.TextChanged += new System.EventHandler(this.properties_id_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(12, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "ID: ";
-            // 
-            // properties_title_label
-            // 
-            this.properties_title_label.AutoSize = true;
-            this.properties_title_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.properties_title_label.Location = new System.Drawing.Point(10, 126);
-            this.properties_title_label.Name = "properties_title_label";
-            this.properties_title_label.Size = new System.Drawing.Size(36, 13);
-            this.properties_title_label.TabIndex = 2;
-            this.properties_title_label.Text = "Title:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-2, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PROPERTIES";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(21, 154);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "X:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(126, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Y:";
-            // 
-            // properties_title
-            // 
-            this.properties_title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.properties_title.Enabled = false;
-            this.properties_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.properties_title.Location = new System.Drawing.Point(62, 119);
-            this.properties_title.Name = "properties_title";
-            this.properties_title.Size = new System.Drawing.Size(177, 20);
-            this.properties_title.TabIndex = 5;
-            this.properties_title.TextChanged += new System.EventHandler(this.properties_title_TextChanged);
-            // 
-            // properties_x
-            // 
-            this.properties_x.Enabled = false;
-            this.properties_x.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.properties_x.Location = new System.Drawing.Point(62, 147);
-            this.properties_x.Name = "properties_x";
-            this.properties_x.Size = new System.Drawing.Size(58, 20);
-            this.properties_x.TabIndex = 3;
-            this.properties_x.TextChanged += new System.EventHandler(this.properties_x_TextChanged);
-            // 
-            // properties_y
-            // 
-            this.properties_y.Enabled = false;
-            this.properties_y.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.properties_y.Location = new System.Drawing.Point(167, 147);
-            this.properties_y.Name = "properties_y";
-            this.properties_y.Size = new System.Drawing.Size(61, 20);
-            this.properties_y.TabIndex = 2;
-            this.properties_y.TextChanged += new System.EventHandler(this.properties_y_TextChanged);
-            // 
-            // properties_file_target
-            // 
-            this.properties_file_target.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.properties_file_target.FormattingEnabled = true;
-            this.properties_file_target.Location = new System.Drawing.Point(142, 173);
-            this.properties_file_target.Name = "properties_file_target";
-            this.properties_file_target.Size = new System.Drawing.Size(60, 21);
-            this.properties_file_target.TabIndex = 26;
-            this.properties_file_target.Visible = false;
-            this.properties_file_target.SelectedIndexChanged += new System.EventHandler(this.properties_file_target_SelectedIndexChanged);
-            // 
-            // addLabelsInPanel
-            // 
-            this.addLabelsInPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.refreshToolStripMenuItem});
-            this.addLabelsInPanel.Name = "addLabelsInPanel";
-            this.addLabelsInPanel.Size = new System.Drawing.Size(114, 48);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sCENEToolStripMenuItem,
-            this.sELECTERToolStripMenuItem,
-            this.oUTERLABELToolStripMenuItem});
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.addToolStripMenuItem.Text = "Add";
-            // 
-            // sCENEToolStripMenuItem
-            // 
-            this.sCENEToolStripMenuItem.Name = "sCENEToolStripMenuItem";
-            this.sCENEToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.sCENEToolStripMenuItem.Text = "SCENE";
-            this.sCENEToolStripMenuItem.Click += new System.EventHandler(this.sCENEToolStripMenuItem_Click);
-            // 
-            // sELECTERToolStripMenuItem
-            // 
-            this.sELECTERToolStripMenuItem.Name = "sELECTERToolStripMenuItem";
-            this.sELECTERToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.sELECTERToolStripMenuItem.Text = "SELECTER";
-            this.sELECTERToolStripMenuItem.Click += new System.EventHandler(this.sELECTERToolStripMenuItem_Click);
-            // 
-            // oUTERLABELToolStripMenuItem
-            // 
-            this.oUTERLABELToolStripMenuItem.Name = "oUTERLABELToolStripMenuItem";
-            this.oUTERLABELToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.oUTERLABELToolStripMenuItem.Text = "OUTERLABEL";
-            this.oUTERLABELToolStripMenuItem.Click += new System.EventHandler(this.oUTERLABELToolStripMenuItem_Click);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
-            // 
-            // flowLayout
-            // 
-            this.flowLayout.AllowDrop = true;
-            this.flowLayout.AutoScroll = true;
-            this.flowLayout.AutoSize = true;
-            this.flowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayout.Location = new System.Drawing.Point(0, 0);
-            this.flowLayout.Margin = new System.Windows.Forms.Padding(50);
-            this.flowLayout.Name = "flowLayout";
-            this.flowLayout.Size = new System.Drawing.Size(422, 679);
-            this.flowLayout.TabIndex = 0;
-            this.flowLayout.Click += new System.EventHandler(this.flowLayout_Click);
-            this.flowLayout.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
-            this.flowLayout.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
-            this.flowLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayout_Paint);
-            // 
-            // outerlabel_open_target
-            // 
-            this.outerlabel_open_target.AddExtension = false;
-            this.outerlabel_open_target.DefaultExt = "fcf";
-            this.outerlabel_open_target.FileName = "*.fcf";
-            this.outerlabel_open_target.Filter = "FCF files|*.fcf";
-            this.outerlabel_open_target.Title = "Select the Target file";
-            this.outerlabel_open_target.FileOk += new System.ComponentModel.CancelEventHandler(this.outerlabel_open_target_FileOk);
-            // 
-            // comment_box
-            // 
-            this.comment_box.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comment_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.comment_box.Location = new System.Drawing.Point(739, 23);
-            this.comment_box.Name = "comment_box";
-            this.comment_box.Size = new System.Drawing.Size(268, 20);
-            this.comment_box.TabIndex = 3;
-            // 
-            // saveFile
-            // 
-            this.saveFile.DefaultExt = "fcf";
-            this.saveFile.FileName = "*.fcf";
-            this.saveFile.Filter = "FCF files|*.fcf";
-            this.saveFile.Title = "Save the Flowchart data";
-            this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFile_FileOk);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debug});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // debug
-            // 
-            this.debug.AutoToolTip = true;
-            this.debug.Name = "debug";
-            this.debug.Size = new System.Drawing.Size(85, 17);
-            this.debug.Text = "                          ";
-            // 
-            // MainForm
-            // 
-            this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 11F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.comment_box);
-            this.Controls.Add(this.log);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.SC);
-            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(800, 514);
-            this.Name = "MainForm";
-            this.Text = "Flowchart Editor";
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.SC.Panel1.ResumeLayout(false);
-            this.SC.Panel1.PerformLayout();
-            this.SC.Panel2.ResumeLayout(false);
-            this.SC.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SC)).EndInit();
-            this.SC.ResumeLayout(false);
-            this.alternatives.ResumeLayout(false);
-            this.flagOperations.ResumeLayout(false);
-            this.checkFlags.ResumeLayout(false);
-            this.addLabelsInPanel.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
-
-        #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFile;
-        public System.Windows.Forms.SplitContainer SC;
-        public System.Windows.Forms.TextBox log;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label properties_title_label;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox properties_title;
-        public System.Windows.Forms.TextBox properties_id;
-        public System.Windows.Forms.TextBox properties_y;
-        public System.Windows.Forms.TextBox properties_x;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox properties_type;
-        private System.Windows.Forms.Label properties_jumpTarget_label;
-        private System.Windows.Forms.ComboBox properties_jumpTarget;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.GroupBox checkFlags;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.TabControl properties_check_tabs;
-        private System.Windows.Forms.GroupBox flagOperations;
-        private System.Windows.Forms.TabControl properties_operation_tabs;
-        private System.Windows.Forms.Button addCheckTab;
-        private System.Windows.Forms.Button addOperationTab;
-        private System.Windows.Forms.GroupBox alternatives;
-        private System.Windows.Forms.TabControl properties_alternative_tabs;
-        private System.Windows.Forms.Button addAlt;
-        private System.Windows.Forms.Button outerlabel_browse;
-        private System.Windows.Forms.OpenFileDialog outerlabel_open_target;
-        private System.Windows.Forms.ComboBox properties_file_target;
-        private System.Windows.Forms.Button update;
-        private System.Windows.Forms.TextBox comment_box;
-        private System.Windows.Forms.SaveFileDialog saveFile;
-        private System.Windows.Forms.ContextMenuStrip addLabelsInPanel;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sCENEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sELECTERToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oUTERLABELToolStripMenuItem;
-        private System.Windows.Forms.Panel flowLayout;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel debug;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem addToolStripMenuItem1;
-        private ToolStripMenuItem sCENEToolStripMenuItem1;
-        private ToolStripMenuItem sELECTERToolStripMenuItem1;
-        private ToolStripMenuItem oUTERLABELToolStripMenuItem1;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem optionsToolStripMenuItem;
-# endregion
-
         private Dictionary<int, Labels> collection = new Dictionary<int, Labels>();
         private Dictionary<String, String> variablesList = new Dictionary<String, String>();
 
@@ -822,16 +22,37 @@ namespace FCF_Editor
         private int previousID;
         private string previousType;
         private Point point;
-        private Point mouseDownCoords;
 
         private string charactersDisallowed = "'";
         private string numbersAllowed = "0123456789";
 
         private bool isMoving;
         //private Point previousLocation;
-        private bool allowMoving;
 
         private int margin = 20;
+        private string fileName = "";
+
+        private string format = "";
+        private string variableData = "";
+        private Button resetButton;
+
+        private bool _changesMade = false;
+
+        private Button tempButton;
+
+        public bool ChangesMade
+        {
+            get { return _changesMade; }
+            set
+            {
+                _changesMade = value;
+                if (_changesMade)
+                {
+                    this.Text += " *";
+                }
+                else this.Text.Replace(" *", "");
+            }
+        }
 
         public MainForm(string[] args)
         {
@@ -839,9 +60,8 @@ namespace FCF_Editor
 
             point = new Point(flowLayout.Width / 2, flowLayout.Height / 2);
             this.Text = "Flowchart Editor";
-            variables_list();
 
-            clearEverything();// allowMoving = true;
+            clearEverything(true);
 
             if (args.Any()) readFile(args[0]);
 
@@ -854,9 +74,22 @@ namespace FCF_Editor
             openFile.ShowDialog();
         }
 
-        private void clearEverything()
+        private bool clearEverything(bool newFile)
         {
+            if (ChangesMade)
+            {
+                DialogResult dialog = MessageBox.Show("Some changes have been made, which aren't saved yet... Do you want to save?", "Unsaved changes!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (dialog == DialogResult.Yes)
+                {
+                    save(false, false);
+                }
+                else if (dialog == DialogResult.Cancel)
+                {
+                    return false;
+                }
+            }
             this.Text = "Flowchart Editor";
+            this.fileName = "";
 
             //flowLayout.Controls.Remove(FindControlByName("canvas", flowLayout));
             log.Text = "";
@@ -877,6 +110,13 @@ namespace FCF_Editor
             properties_jumpTarget.Enabled = false;
             update.Visible = false;
             update.Enabled = false;
+            removeButton.Visible = false;
+            removeButton.Enabled = false;
+            resetButton.Visible = false;
+            resetButton.Enabled = false;
+            outerlabel_browse.Visible = false;
+            properties_title_label.Text = "Title:";
+            properties_jumpTarget.Visible = true;
 
             collection.Clear();
             flowLayout.Controls.Clear();
@@ -885,28 +125,173 @@ namespace FCF_Editor
             flagOperations.Visible = false;
             properties_file_target.Visible = false;
 
-            allowMoving = true;
             currentLabel = null;
 
-            variables_list();
+            properties_jumpTarget_label.Text = "Default Jump Target:";
             flowLayout.Refresh();
+
+            if (newFile)
+            {
+                format = "";
+                string variableFile = Properties.Settings.Default.Variable_filepath;
+                variableData = "";
+                # region formatsList
+                ComboBox formatsList = new ComboBox();
+                formatsList.SelectionChangeCommitted += formatsList_SelectionChangeCommitted;
+                formatsList.Width = 100;
+                formatsList.Top = 80;
+                formatsList.Left = 150;
+                formatsList.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+                # endregion
+
+                if (variableFile == "" || !System.IO.File.Exists(variableFile))
+                {
+                    variableData = Properties.Resources.variables;
+                }
+
+                if (variableData != "" || (variableFile != "" && System.IO.File.Exists(variableFile)))
+                {
+                    string[] readlines;
+                    if (variableData != "") readlines = variableData.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                    else readlines = System.IO.File.ReadAllLines(variableFile);
+                    foreach (var line in readlines)
+                    {
+                        if (line.Contains("==>"))
+                        {
+                            formatsList.Items.Add(line.Remove(0, 3));
+                        }
+                    }
+                    if (formatsList.Items.Count > 1)
+                    {
+                        string source = (variableData != "") ? "from the default variable data" : "from your specified variable file";
+                        # region choose_button
+                        Button choose_button = new Button();
+                        choose_button.Left = 150;
+                        choose_button.Width = 100;
+                        choose_button.Height = 30;
+                        choose_button.Top = 115;
+                        choose_button.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
+                        choose_button.Text = "CHOOSE!";
+                        choose_button.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+                        choose_button.Click += choose_button_Click;
+                        choose_button.Enabled = false;
+                        # endregion
+
+                        tempButton = choose_button;
+
+                        # region choose_format
+                        Form choose_format = new Form();
+                        choose_format.Size = new System.Drawing.Size(400, 200);
+                        choose_format.MaximumSize = choose_format.Size;
+                        choose_format.MinimumSize = choose_format.Size;
+                        choose_format.MaximizeBox = false;
+                        choose_format.MinimizeBox = false;
+                        choose_format.Text = "Choose your FCF file format!";
+                        choose_format.FormClosing += choose_format_FormClosing;
+                        choose_format.ControlBox = false;
+                        choose_format.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+                        choose_format.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+                        choose_format.StartPosition = FormStartPosition.CenterScreen;
+                        choose_format.AcceptButton = choose_button;
+                        # endregion
+                        # region info
+                        Label info = new Label();
+                        info.Top = 10;
+                        info.TextAlign = ContentAlignment.MiddleCenter;
+                        //info.Left = 10;
+                        info.Height = 60;
+                        info.Width = choose_format.Width - 10;
+                        info.Text = formatsList.Items.Count + " FCF formats have been found with their respective \nvariables' data " + source + "...\n Which one do you want to work on?";
+                        # endregion
+
+                        choose_format.Controls.Add(info);
+                        choose_format.Controls.Add(formatsList);
+                        choose_format.Controls.Add(choose_button);
+
+                        choose_format.ShowDialog();
+                    }
+                    else
+                    {
+                        if (formatsList.Items.Count == 1) format = formatsList.Items[0].ToString();
+                        else format = "FSN";
+                    }
+                }
+            }
+
+            variables_list();
+            debug.Text = "Currently editing " + format.ToUpper() + " flowchart format.";
+
+            ChangesMade = false;
+            return true;
+        }
+
+        private bool save(bool saveAs, bool quit)
+        {
+            if (log.Text == "")
+            {
+                MessageBox.Show("Atleast add something in the flowchart before saving!\nOr, do you just want to create an empty flowchart file? If that's the case, then just create a plain text file and change it's extension to .fcf. Easy, right?", "What do you wish to save?");
+                return false;
+            }
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the flow element properly before trying to save!", "Incomplete data!");
+                return false;
+            }
+            if (!saveAs)
+            {
+                if (System.IO.File.Exists(fileName))
+                {
+                    UnicodeEncoding unicode = new UnicodeEncoding();
+                    string comment = (comment_box.Text == "") ? comment = "COMMENT!" : comment = comment_box.Text;
+                    System.IO.File.WriteAllText(fileName, comment + Environment.NewLine + log.Text, unicode);
+                }
+                else saveFile.ShowDialog();
+            }
+            else saveFile.ShowDialog();
+
+            if (!quit)
+            {
+                ChangesMade = false;
+                string filename = this.fileName;
+                if (clearEverything(false)) readFile(filename);
+            }
+            return true;
+        }
+
+        void choose_button_Click(object sender, EventArgs e)
+        {
+            ((Button)sender).FindForm().Close();
+        }
+
+        void formatsList_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            format = ((ComboBox)sender).SelectedItem.ToString();
+            if (format != "") { tempButton.Text = "DONE!"; tempButton.Enabled = true; }
+        }
+
+        void choose_format_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (format == "")
+            {
+                MessageBox.Show("Select the desired .fcf format!", "No way to go nowhere!");
+                e.Cancel = true;
+            }
         }
 
         private void openFile_FileOk(object sender, CancelEventArgs e)
         {
-            clearEverything();
-
             // Open document 
             string filename = openFile.FileName;
-            readFile(filename);
+            if (clearEverything(true)) readFile(filename);
         }
 
         private void readFile(string filename)
         {
-            string[] readlines = System.IO.File.ReadAllLines(filename);
+            this.fileName = filename;
+            string[] readlines = System.IO.File.ReadAllLines(fileName);
             if (!readlines.Any())
             {
-                MessageBox.Show("There's not a single character in the file... How can this messed-up code get to know what you want to show...?\nIf you want to create a flowchart anew, then just click(or right-click) on the middle panel and start adding elements... Easy, right?", "Empty file!");
+                MessageBox.Show("There's not a single character in the file... How can this stupid program read your mind and output what you want to show...?\nIf you want to create a flowchart anew, then just go to Edit->Add and start adding flow elements... Easy, right?", "Empty file!");
                 return;
             }
             this.Text = "Flowchart Editor ( " + filename + " )";
@@ -916,6 +301,7 @@ namespace FCF_Editor
                 if (line == (readlines.Length - 1)) log.Text += readlines[line];
                 else log.Text += readlines[line] + Environment.NewLine;
                 string[] pm = readlines[line].Split(';');
+                pm[1] = pm[1].Replace("\\'", "`"); // For FHA \' compatibility!
                 pm = pm[1].Split(new string[] { "'" }, StringSplitOptions.RemoveEmptyEntries);
 
                 int l = int.Parse(pm[2]); // LEFT
@@ -992,16 +378,38 @@ namespace FCF_Editor
                         break;
 
                     case "SELECTER":
-                        List<string[]> alts = new List<string[]>();
+                        List<String[]> alts = new List<String[]>();
+                        List<String[]> check = new List<String[]>();
                         int nAlts = int.Parse(pm[11]);
                         for (int i = 0; i < nAlts; i++)
                         {
                             string target = pm[12 + (i * 3)];
                             string text = pm[12 + (i * 3) + 2];
+                            if (format == "FHA")
+                            {
+                                if (text.Contains("//") && text.Contains(":"))
+                                {
+                                    string[] checkSplit = text.Split(':');
+                                    int nDecisions = int.Parse(checkSplit[1]);
+                                    for (int decision = 0; decision < nDecisions; decision++)
+                                    {
+                                        string[] decisionSplit = checkSplit[decision + 2].Split(new string[] { "//" }, StringSplitOptions.None);
+                                        string flagName = decisionSplit[0];
+                                        string decisionType = decisionSplit[1];
+                                        string arg = decisionSplit[2];
 
+                                        string linkType = checkSplit[nDecisions + 2];
+
+                                        check.Add(new string[] { target, linkType, flagName, decisionType, arg });
+                                    }
+                                    text = checkSplit[0];
+                                }
+                            }
                             alts.Add(new String[] { text, target });
                         }
-                        Labels selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, alts);
+                        Labels selecter;
+                        if (format == "FHA") selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), alts, check);
+                        else selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, alts);
                         TextBox selecterButton = selecter.drawSelecterButton();
 
                         selecterButton.Location = centerPoint(l, t, r - l, b - t);
@@ -1070,6 +478,7 @@ namespace FCF_Editor
             {
                 properties_jumpTarget.Items.Add(item.Key);
             }
+
         }
 
         private Point centerPoint(int x, int y, int w, int h)
@@ -1167,21 +576,24 @@ namespace FCF_Editor
 
         void box_MouseDown(object sender, MouseEventArgs e)
         {
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the selected flow element before attempting to choose another flow element!", "Update!");
+                return;
+            }
             //activeControl = sender as Control;
             //previousLocation = e.Location;
             foreach (var label in collection)
             {
                 if (((TextBox)sender).Name == (label.Value.type + "_" + label.Key))
                 {
-                    currentLabel = new Labels(label.Value);
+                    currentLabel = new Labels(label.Value); // label.Value.Clone() as Labels;
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
-                    mouseDownCoords.X = e.Location.X;
-                    mouseDownCoords.Y = e.Location.Y;
                     break;
-                 }
+                }
             }
-            if (allowMoving) isMoving = true;
+            isMoving = true;
             Cursor = Cursors.SizeAll;
         }
         void box_MouseMove(object sender, MouseEventArgs e)
@@ -1194,27 +606,37 @@ namespace FCF_Editor
             //activeControl.Location = location;
             ((TextBox)sender).SelectionLength = 0;
 
-            MoveControl((TextBox)sender, new Point(e.Location.X - mouseDownCoords.X, e.Location.Y - mouseDownCoords.Y));
-            //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top;
+            CheckControl((TextBox)sender, e.Location);
+
+            //debug.Text = ((TextBox)sender).Left + "|" + flowLayout.Width;
+            //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top + " | " + flowLayout.VerticalScroll.Value;
+            if (((TextBox)sender).Left > flowLayout.Width || flowLayout.HorizontalScroll.Value > 0)
+            {
+                currentLabel.left = ((TextBox)sender).Left + (flowLayout.HorizontalScroll.Maximum - flowLayout.Width);
+            }
+            else currentLabel.left = ((TextBox)sender).Left;
+            if (((TextBox)sender).Top > flowLayout.Height || flowLayout.VerticalScroll.Value > 0)
+            {
+                currentLabel.top = ((TextBox)sender).Top + (flowLayout.VerticalScroll.Maximum - flowLayout.Height);
+            }
+            else currentLabel.top = ((TextBox)sender).Top;
+            currentLabel.right = currentLabel.left + 30;
+            currentLabel.bottom = currentLabel.top + 16;
+            if (currentLabel is Labels) update_position();//update_line();
+            //edit_properties((TextBox)sender);
+
             flowLayout.Refresh();
         }
 
         void box_MouseUp(object sender, MouseEventArgs e)
         {
-            if (isMoving && allowMoving)
-            {
-                //update.Enabled = true;
-                //int top = ((TextBox)sender).Top;
-                //if (top >= flowLayout.Height) top += flowLayout.VerticalScroll.Value;
-
-                currentLabel.left = ((TextBox)sender).Left;
-                currentLabel.top = ((TextBox)sender).Top;
-                currentLabel.right = currentLabel.left + 30;
-                currentLabel.bottom = currentLabel.top + 16;
-                if (currentLabel is Labels) update_position();//update_line();
-                flowLayout.Refresh();
-            }
-
+            //if (isMoving && allowMoving)
+            //{
+            //update.Enabled = true;
+            //int top = ((TextBox)sender).Top;
+            //if (top >= flowLayout.Height) top += flowLayout.VerticalScroll.Value;
+            //flowLayout.Refresh();
+            //}
             isMoving = false;
             Cursor = Cursors.Default;
         }
@@ -1263,22 +685,46 @@ namespace FCF_Editor
                 newString.CopyTo(newLines, lines.Length);
                 log.Lines = newLines;
             }
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         private void box_Click(object sender, EventArgs e)
         {
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the selected flow element before attempting to choose another flow element!", "Update!");
+                return;
+            }
             update.Visible = false;
+            removeButton.Visible = false;
+            resetButton.Visible = false;
             foreach (var label in collection)
             {
                 if (((TextBox)sender).Name == (label.Value.type + "_" + label.Key))
                 {
-                    currentLabel = new Labels(label.Value);
+                    currentLabel = new Labels(label.Value); // label.Value.Clone() as Labels;
 
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
 
+                    //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top + " | " + flowLayout.VerticalScroll.Value;
+                    if (((TextBox)sender).Left > flowLayout.Width || flowLayout.HorizontalScroll.Value > 0)
+                    {
+                        currentLabel.left = ((TextBox)sender).Left + (flowLayout.HorizontalScroll.Maximum - flowLayout.Width);
+                    }
+                    else currentLabel.left = ((TextBox)sender).Left;
+                    if (((TextBox)sender).Top > flowLayout.Height || flowLayout.VerticalScroll.Value > 0)
+                    {
+                        currentLabel.top = ((TextBox)sender).Top + (flowLayout.VerticalScroll.Maximum - flowLayout.Height);
+                    }
+                    else currentLabel.top = ((TextBox)sender).Top;
+                    currentLabel.right = currentLabel.left + 30;
+                    currentLabel.bottom = currentLabel.top + 16;
+                    update_position();
+
                     edit_properties((TextBox)sender);
                     ((TextBox)sender).Focus();
+
                     break;
                 }
             }
@@ -1372,6 +818,37 @@ namespace FCF_Editor
                         ComboBox target = properties_alternative_tabs.TabPages[i].Controls.Find("alt_tab_target_value_" + i, true).First() as ComboBox;
                         if (currentLabel.alts[i][1] != "") target.SelectedItem = int.Parse(currentLabel.alts[i][1]);
                     }
+                    if (format == "FHA")
+                    {
+                        for (int j = 0; j < currentLabel.jumps.Count; j++)
+                        {
+                            add_Check_Tabs();
+                            ComboBox flagName = properties_check_tabs.TabPages[j].Controls.Find("check_tab_flagName_" + j, true).First() as ComboBox;
+                            if (variablesList.Any())
+                            {
+                                foreach (var variable in variablesList)
+                                {
+                                    if (variable.Key == currentLabel.jumps[j][2])
+                                    {
+                                        flagName.SelectedItem = currentLabel.jumps[j][2] + " (" + variable.Value + ")";
+                                        break;
+                                    }
+                                    else flagName.Text = currentLabel.jumps[j][2];
+                                }
+                            }
+                            else flagName.Text = currentLabel.jumps[j][2];
+                            ComboBox decisionType = properties_check_tabs.TabPages[j].Controls.Find("check_tab_decisionType_" + j, true).First() as ComboBox;
+                            decisionType.SelectedIndex = int.Parse(currentLabel.jumps[j][3]);
+                            TextBox value = properties_check_tabs.TabPages[j].Controls.Find("check_tab_value_" + j, true).First() as TextBox;
+                            value.Text = currentLabel.jumps[j][4];
+
+                            ComboBox jumpTarget = properties_check_tabs.TabPages[j].Controls.Find("check_tab_jumpTarget_" + j, true).First() as ComboBox;
+                            if (currentLabel.jumps[j][0] != "") jumpTarget.SelectedItem = int.Parse(currentLabel.jumps[j][0]);
+
+                            ComboBox linkType = properties_check_tabs.TabPages[j].Controls.Find("check_tab_linkType_" + j, true).First() as ComboBox;
+                            linkType.SelectedIndex = int.Parse(currentLabel.jumps[j][1]) - 1;
+                        }
+                    }
                     break;
 
                 case "OUTERLABEL":
@@ -1383,6 +860,10 @@ namespace FCF_Editor
                     break;
             }
             update.Enabled = false;
+            removeButton.Enabled = true;
+            removeButton.Visible = true;
+            resetButton.Visible = true;
+            resetButton.Enabled = true;
             update.Visible = true;
         }
         //}
@@ -1391,7 +872,7 @@ namespace FCF_Editor
         private void change_properties(Labels label)
         {
             clearProperties();
-            currentLabel = new Labels(label);
+            currentLabel = new Labels(label); //label.Clone() as Labels;
             properties_id.Enabled = true;
             properties_title.Enabled = true;
             properties_type.Enabled = true;
@@ -1418,6 +899,7 @@ namespace FCF_Editor
                     checkFlags.Visible = true;
                     flagOperations.Visible = true;
                     properties_jumpTarget.Visible = true;
+                    checkFlags.Top = 198;
 
                     alternatives.Visible = false;
                     properties_file_target.Visible = false;
@@ -1434,11 +916,18 @@ namespace FCF_Editor
                     properties_jumpTarget.Visible = false;
                     properties_title_label.Text = "Title: ";
                     alternatives.Visible = true;
+                    checkFlags.Top = 198;
 
                     checkFlags.Visible = false;
                     flagOperations.Visible = false;
                     properties_file_target.Visible = false;
                     outerlabel_browse.Visible = false;
+
+                    if (format == "FHA")
+                    {
+                        checkFlags.Visible = true;
+                        checkFlags.Top += alternatives.Height + 10;
+                    }
                     break;
 
                 case "OUTERLABEL":
@@ -1452,6 +941,7 @@ namespace FCF_Editor
                     properties_title_label.Text = "Filename: ";
                     properties_file_target.Visible = true;
                     outerlabel_browse.Visible = true;
+                    checkFlags.Top = 198;
 
                     properties_jumpTarget.Visible = false;
                     checkFlags.Visible = false;
@@ -1473,7 +963,7 @@ namespace FCF_Editor
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clearEverything();
+            clearEverything(true);
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1481,19 +971,27 @@ namespace FCF_Editor
             Options options_form = new Options();
             options_form.ShowDialog(this);
             variables_list();
+            flowLayout.Refresh();
         }
 
         private void variables_list()
         {
             variablesList.Clear();
             string variableFile = Properties.Settings.Default.Variable_filepath;
-            if (variableFile != "" && System.IO.File.Exists(variableFile))
+            if (variableData != "" || (variableFile != "" && System.IO.File.Exists(variableFile)))
             {
-                string[] readlines = System.IO.File.ReadAllLines(variableFile);
-                foreach (var line in readlines)
+                string[] readlines;
+                if (variableData != "") readlines = variableData.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                else readlines = System.IO.File.ReadAllLines(variableFile);
+                int index = Array.IndexOf(readlines, "==>" + format);
+                for (int i = (index + 1); i < readlines.Length; i++)
                 {
-                    string[] vars = line.Split('|');
-                    variablesList.Add(vars[0], vars[1]);
+                    if (!readlines[i].Contains("==>") && readlines[i] != "" && readlines[i] != Environment.NewLine)
+                    {
+                        string[] vars = readlines[i].Split('|');
+                        variablesList.Add(vars[0], vars[1]);
+                    }
+                    else break;
                 }
             }
         }
@@ -1502,7 +1000,8 @@ namespace FCF_Editor
         {
             add_Check_Tabs();
             update.Enabled = true;
-            currentLabel.jumps.Insert(currentLabel.jumps.Count - 1, new string[] { "", "", "", "", "" });
+            if (format == "FHA" && currentLabel.type == "SELECTER") currentLabel.jumps.Add(new string[] { "", "", "", "", "" });
+            else currentLabel.jumps.Insert(currentLabel.jumps.Count - 1, new string[] { "", "", "", "", "" });
             properties_check_tabs.SelectedIndex = properties_check_tabs.TabCount - 1;
         }
 
@@ -1546,7 +1045,7 @@ namespace FCF_Editor
                 operation_tab_flagName.Items.Add(variable.Key + " (" + variable.Value + ")");
             }
             operation_tab_flagName.SelectionChangeCommitted += operation_tab_flagName_SelectionChangeCommitted;
-
+            operation_tab_flagName.TextChanged += operation_tab_flagName_TextChanged;
             # endregion
 
             # region operation_tab_value
@@ -1609,6 +1108,45 @@ namespace FCF_Editor
             properties_operation_tabs.TabPages.Add(operation_tab);
         }
 
+        void operation_tab_flagName_TextChanged(object sender, EventArgs e)
+        {
+            string text = ((ComboBox)sender).Text;
+            string letter;
+            int selectionIndex = ((ComboBox)sender).SelectionStart;
+            int change = 0;
+
+            for (int x = 0; x <= ((ComboBox)sender).Text.Length - 1; x++)
+            {
+                letter = ((ComboBox)sender).Text.Substring(x, 1);
+                if (charactersDisallowed.Contains(letter))
+                {
+                    text = text.Replace(letter, "`");
+                    ((ComboBox)sender).Select(selectionIndex + 1, 0);
+                }
+                if (letter == ":" || letter == "/")
+                {
+                    text = text.Replace(letter, String.Empty);
+                    change = 1;
+                }
+            }
+
+            ((ComboBox)sender).Text = text;
+            ((ComboBox)sender).Select(selectionIndex - change, 0);
+
+            string[] name = ((ComboBox)sender).Name.Split('_');
+            //int.Parse(name[name.Length - 1])
+            if (currentLabel.flagOperations[int.Parse(name[name.Length - 1])][0] != ((ComboBox)sender).Text)
+            {
+                update.Enabled = true;
+                if (((ComboBox)sender).Text.Contains('('))
+                {
+                    string[] variableData = ((ComboBox)sender).Text.ToString().Split(new string[] { " (" }, StringSplitOptions.RemoveEmptyEntries);
+                    currentLabel.flagOperations[int.Parse(name[name.Length - 1])][0] = variableData[0];
+                }
+                else currentLabel.flagOperations[int.Parse(name[name.Length - 1])][0] = ((ComboBox)sender).Text;
+            }
+        }
+
         private void operation_tab_value_TextChanged(object sender, EventArgs e)
         {
             string text = ((TextBox)sender).Text;
@@ -1619,7 +1157,12 @@ namespace FCF_Editor
             for (int x = 0; x <= ((TextBox)sender).Text.Length - 1; x++)
             {
                 letter = ((TextBox)sender).Text.Substring(x, 1);
-                if (charactersDisallowed.Contains(letter) || letter == ":" || letter == "//")
+                if (charactersDisallowed.Contains(letter))
+                {
+                    text = text.Replace(letter, "`");
+                    ((TextBox)sender).Select(selectionIndex + 1, 0);
+                }
+                if (letter == ":" || letter == "/")
                 {
                     text = text.Replace(letter, String.Empty);
                     change = 1;
@@ -1631,13 +1174,10 @@ namespace FCF_Editor
 
             string[] name = ((TextBox)sender).Name.Split('_');
             //int.Parse(name[name.Length - 1])
-            if (currentLabel.flagOperations[int.Parse(name[name.Length - 1])][2] != "")
+            if (currentLabel.flagOperations[int.Parse(name[name.Length - 1])][2] != ((TextBox)sender).Text)
             {
-                if (currentLabel.flagOperations[int.Parse(name[name.Length - 1])][2] != ((TextBox)sender).Text)
-                {
-                    currentLabel.flagOperations[int.Parse(name[name.Length - 1])][2] = ((TextBox)sender).Text;
-                    update.Enabled = true;
-                }
+                currentLabel.flagOperations[int.Parse(name[name.Length - 1])][2] = ((TextBox)sender).Text;
+                update.Enabled = true;
             }
         }
 
@@ -1742,6 +1282,7 @@ namespace FCF_Editor
             }
 
             check_tab_flagName.SelectionChangeCommitted += check_tab_flagName_SelectionChangeCommitted;
+            check_tab_flagName.TextChanged += check_tab_flagName_TextChanged;
             # endregion
 
             # region check_tab_then_Label
@@ -1814,6 +1355,15 @@ namespace FCF_Editor
             check_tab_linktype.SelectionChangeCommitted += check_tab_linktype_SelectionChangeCommitted;
             # endregion
 
+            //# region check_tab_alternativeID
+            //ComboBox check_tab_alternativeID = new ComboBox();
+            //check_tab_alternativeID.FormattingEnabled = true;
+            //check_tab_alternativeID.Name = "check_tab_alternativeID_" + properties_check_tabs.TabCount;
+            //check_tab_alternativeID.Size = new System.Drawing.Size(40, 27);
+            //check_tab_alternativeID.TabIndex = 18;
+            //check_tab_alternativeID.Location = new System.Drawing.Point(48, 37);
+            //# endregion // For FHA
+
             check_tab.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             check_tab.Location = new System.Drawing.Point(4, 23);
             check_tab.Name = "checkTab" + properties_check_tabs.TabCount;
@@ -1833,8 +1383,48 @@ namespace FCF_Editor
             check_tab.Controls.Add(check_tab_removeTab);
             check_tab.Controls.Add(check_tab_linkType_label);
             check_tab.Controls.Add(check_tab_linktype);
+
+            //if (format == "FHA") check_tab.Controls.Add(check_tab_alternativeID);
             //check_tab.Controls.Add(addTab);
             properties_check_tabs.TabPages.Add(check_tab);
+        }
+
+        void check_tab_flagName_TextChanged(object sender, EventArgs e)
+        {
+            string text = ((ComboBox)sender).Text;
+            string letter;
+            int selectionIndex = ((ComboBox)sender).SelectionStart;
+            int change = 0;
+
+            for (int x = 0; x <= ((ComboBox)sender).Text.Length - 1; x++)
+            {
+                letter = ((ComboBox)sender).Text.Substring(x, 1);
+                if (charactersDisallowed.Contains(letter))
+                {
+                    text = text.Replace(letter, "`");
+                    ((ComboBox)sender).Select(selectionIndex + 1, 0);
+                }
+                if (letter == ":" || letter == "/")
+                {
+                    text = text.Replace(letter, String.Empty);
+                    change = 1;
+                }
+            }
+
+            ((ComboBox)sender).Text = text;
+            ((ComboBox)sender).Select(selectionIndex - change, 0);
+
+            string[] name = ((ComboBox)sender).Name.Split('_');
+            if (currentLabel.jumps[int.Parse(name[name.Length - 1])][2] != ((ComboBox)sender).Text)
+            {
+                update.Enabled = true;
+                if (((ComboBox)sender).Text.Contains('('))
+                {
+                    string[] variableData = ((ComboBox)sender).Text.ToString().Split(new string[] { " (" }, StringSplitOptions.RemoveEmptyEntries);
+                    currentLabel.jumps[int.Parse(name[name.Length - 1])][2] = variableData[0];
+                }
+                else currentLabel.jumps[int.Parse(name[name.Length - 1])][2] = ((ComboBox)sender).Text;
+            }
         }
 
         void check_tab_linktype_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1872,7 +1462,12 @@ namespace FCF_Editor
             for (int x = 0; x <= ((TextBox)sender).Text.Length - 1; x++)
             {
                 letter = ((TextBox)sender).Text.Substring(x, 1);
-                if (charactersDisallowed.Contains(letter) || letter == ":" || letter == "//")
+                if (charactersDisallowed.Contains(letter))
+                {
+                    text = text.Replace(letter, "`");
+                    ((TextBox)sender).Select(selectionIndex + 1, 0);
+                }
+                if (letter == ":" || letter == "/")
                 {
                     text = text.Replace(letter, String.Empty);
                     change = 1;
@@ -1884,13 +1479,10 @@ namespace FCF_Editor
 
             string[] name = ((TextBox)sender).Name.Split('_');
             //int.Parse(name[name.Length - 1])
-            if (currentLabel.jumps[int.Parse(name[name.Length - 1])][4] != "")
+            if (currentLabel.jumps[int.Parse(name[name.Length - 1])][4] != ((TextBox)sender).Text)
             {
-                if (currentLabel.jumps[int.Parse(name[name.Length - 1])][4] != ((TextBox)sender).Text)
-                {
-                    update.Enabled = true;
-                    currentLabel.jumps[int.Parse(name[name.Length - 1])][4] = ((TextBox)sender).Text;
-                }
+                update.Enabled = true;
+                currentLabel.jumps[int.Parse(name[name.Length - 1])][4] = ((TextBox)sender).Text;
             }
         }
 
@@ -2009,10 +1601,18 @@ namespace FCF_Editor
             for (int x = 0; x <= ((TextBox)sender).Text.Length - 1; x++)
             {
                 letter = ((TextBox)sender).Text.Substring(x, 1);
+                if (format == "FHA")
+                {
+                    if (letter == ":" || letter == "/")
+                    {
+                        text = text.Replace(letter, String.Empty);
+                        change = 1;
+                    }
+                }
                 if (charactersDisallowed.Contains(letter))
                 {
-                    text = text.Replace(letter, String.Empty);
-                    change = 1;
+                    text = text.Replace(letter, "`");
+                    ((TextBox)sender).Select(selectionIndex + 1, 0);
                 }
             }
 
@@ -2022,14 +1622,11 @@ namespace FCF_Editor
             string[] name = ((TextBox)sender).Name.Split('_');
             //int.Parse(name[name.Length - 1])
             int id = int.Parse(name[name.Length - 1]);
-            if (currentLabel.alts[id][0] != "")
+            if (currentLabel.alts[id][0] != ((TextBox)sender).Text)
             {
-                if (currentLabel.alts[id][0] != ((TextBox)sender).Text)
-                {
-                    currentLabel.alts[id][0] = ((TextBox)sender).Text;
-                    debug.Text = currentLabel.alts[id][0] + "/" + collection[currentLabel.id].alts[id][0];
-                    update.Enabled = true;
-                }
+                currentLabel.alts[id][0] = ((TextBox)sender).Text;
+                //debug.Text = currentLabel.alts[id][0] + "/" + collection[currentLabel.id].alts[id][0];
+                update.Enabled = true;
             }
         }
 
@@ -2042,7 +1639,7 @@ namespace FCF_Editor
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            about about_dialog = new about();
+            AboutBox about_dialog = new AboutBox();
             about_dialog.ShowDialog(this);
         }
 
@@ -2090,12 +1687,7 @@ namespace FCF_Editor
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (log.Text == "")
-            {
-                MessageBox.Show("Atleast add something in the flowchart before saving!\nOr, do you just want to create an empty flowchart file? If that's the case, then just create a plain text file and change it's extension to .fcf. Easy, right?", "What do you wish to save?");
-                return;
-            }
-            saveFile.ShowDialog();
+            save(false, false);
         }
 
         private void properties_type_SelectionChangeCommitted(object sender, EventArgs e)
@@ -2120,6 +1712,7 @@ namespace FCF_Editor
 
                 case "SELECTER":
                     if (currentLabel.alts == null) currentLabel.alts = new List<string[]>();
+                    if (format == "FHA" && currentLabel.jumps == null) currentLabel.jumps = new List<string[]>();
                     break;
 
                 case "OUTERLABEL":
@@ -2218,6 +1811,7 @@ namespace FCF_Editor
                 newString.CopyTo(newLines, lines.Length);
                 log.Lines = newLines;
             }
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         private void delete_line(int previousID)
@@ -2240,6 +1834,7 @@ namespace FCF_Editor
                     }
                 }
             }
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -2253,7 +1848,7 @@ namespace FCF_Editor
             }
             if (properties_id.Text == "" || properties_type.SelectedIndex == -1 || properties_x.Text == "" || properties_y.Text == "" || properties_title.Text == "")
             {
-                MessageBox.Show("Input all the data before updating!", "Hey, you lazy person!");
+                MessageBox.Show("Atleast input all the basic data before updating!", "Hey, you lazy person!");
                 return;
             }
 
@@ -2266,12 +1861,20 @@ namespace FCF_Editor
                         {
                             if (jump.Length > 2 && (jump[0] == "" || jump[1] == "" || jump[2] == "" || jump[3] == ""))
                             {
-                                MessageBox.Show("Jump data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!");
+                                MessageBox.Show("Jump data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                 return;
                             }
                             else if (jump[0] == "" || jump[1] == "")
                             {
-                                MessageBox.Show("Jump data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!");
+                                MessageBox.Show("Jump data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return;
+                            }
+                        }
+                        foreach (var operation in currentLabel.flagOperations)
+                        {
+                            if (operation[0] == "" || operation[1] == "" || operation[2] == "")
+                            {
+                                MessageBox.Show("Flag operations data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                 return;
                             }
                         }
@@ -2286,6 +1889,36 @@ namespace FCF_Editor
                                 return;
                             }
                         }
+                    }
+                    break;
+
+                case "SELECTER":
+                    if (format == "FHA")
+                    {
+                        foreach (var jump in currentLabel.jumps)
+                        {
+                            if (jump[0] == "" || jump[1] == "" || jump[2] == "" || jump[3] == "")
+                            {
+                                MessageBox.Show("The Flag Check data for alternatives isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!");
+                                return;
+                            }
+                        }
+                    }
+                    foreach (var alt in currentLabel.alts)
+                    {
+                        if (alt[0] == "" || alt[1] == "")
+                        {
+                            MessageBox.Show("The Alternative data isn't complete! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!");
+                            return;
+                        }
+                    }
+                    break;
+
+                case "OUTERLABEL":
+                    if (currentLabel.file == "" || currentLabel.target == null)
+                    {
+                        MessageBox.Show("The destination file and/or target is missing! Please make sure that all the fields are filled, before attempting to update!", "Hey, you lazy person!");
+                        return;
                     }
                     break;
             }
@@ -2307,10 +1940,24 @@ namespace FCF_Editor
             properties_x.Text = "";
             properties_y.Text = "";
             properties_jumpTarget.SelectedIndex = -1;
+            properties_jumpTarget_label.Text = "Default Jump Target:";
+            properties_title_label.Text = "Title:";
+            properties_jumpTarget_label.Visible = true;
+
+            properties_file_target.Visible = false;
+            properties_jumpTarget.Visible = true;
+            outerlabel_browse.Visible = false;
 
             checkFlags.Visible = false;
             flagOperations.Visible = false;
             alternatives.Visible = false;
+
+            removeButton.Visible = false;
+            removeButton.Enabled = false;
+            resetButton.Visible = false;
+            resetButton.Enabled = false;
+            update.Visible = false;
+            update.Enabled = false;
 
             properties_id.Enabled = false;
             properties_title.Enabled = false;
@@ -2333,9 +1980,7 @@ namespace FCF_Editor
             int top = label.top;// -flowLayout.Height;
             int right = label.right;//left+30;
             int bottom = label.bottom;//top + 16;
-            /* l+[(r-l)/2] = x
-             * l = x - [(r-l)/2]
-             */
+
             Control control = FindControlByName(label.type + "_" + label.id, flowLayout);
             Random rnd = new Random();
             switch (label.type)
@@ -2354,8 +1999,11 @@ namespace FCF_Editor
                             {
                                 if (jump[0] == label.jumps[i][0] && jump[1] == label.jumps[i][1])
                                 {
-                                    nDecisions++;
-                                    decisions += jump[2] + "//" + jump[3] + "//" + jump[4] + ":";
+                                    if (jump.Length > 2)
+                                    {
+                                        nDecisions++;
+                                        decisions += jump[2] + "//" + jump[3] + "//" + jump[4] + ":";
+                                    }
                                 }
                             }
                             jumps = nDecisions + ":" + decisions + label.jumps[i][1] + ":" + label.jumps[i][0] + ":" + rnd.Next(1, 12) + "'";
@@ -2391,6 +2039,28 @@ namespace FCF_Editor
                     for (int i = 0; i < label.alts.Count; i++)
                     {
                         alts += "'" + label.alts[i][1] + "'" + rnd.Next(1, 12) + "'" + label.alts[i][0];
+
+                        if (format == "FHA")
+                        {
+                            string decisions = "";
+                            int nDecisions = 0;
+                            string linkType = "";
+                            for (int j = 0; j < label.jumps.Count; j++)
+                            {   // target, linkType, flagName, decisionType, arg
+                                if (label.alts[i][1] == label.jumps[j][0])
+                                {
+                                    if (nDecisions > 1)
+                                    {
+                                        if (linkType != label.jumps[j][1]) break;
+                                    }
+                                    linkType = label.jumps[j][1];
+
+                                    decisions += label.jumps[j][2] + "//" + label.jumps[j][3] + "//" + label.jumps[j][4] + ":";
+                                    nDecisions++;
+                                }
+                            }
+                            if (nDecisions > 0) alts += ":" + nDecisions + ":" + decisions + linkType;
+                        }
                     }
                     line = label.id + ";" + label.type + "'" + label.id + "'" + left + "'" + top + "'" + right + "'" + bottom + "'" + 0 + "'" + 16777215 + "'" + 0 + "'" + 0 + "'" + label.title + "'" + label.alts.Count + alts;
                     return line;
@@ -2412,16 +2082,22 @@ namespace FCF_Editor
 
             if (e.Control && e.KeyCode == Keys.S)
             {
-                if (log.Text == "")
-                {
-                    MessageBox.Show("Atleast add something in the flowchart before saving!\nOr, do you just want to create an empty flowchart file? If that's the case, then just create a plain text file and change it's extension to .fcf. Easy, right?", "What do you wish to save?");
-                    return;
-                }
-                saveFile.ShowDialog();
+                save(false, false);
             }
+
+            if (e.Control && e.Shift && e.KeyCode == Keys.S)
+            {
+                save(true, false);
+            }
+
             if (e.Control && e.KeyCode == Keys.N)
             {
-                clearEverything();
+                clearEverything(true);
+            }
+
+            if (e.Control && e.KeyCode == Keys.R)
+            {
+                flowLayout.Refresh();
             }
         }
 
@@ -2432,15 +2108,22 @@ namespace FCF_Editor
             {
                 // Saves the Image via a FileStream created by the OpenFile method.
                 UnicodeEncoding unicode = new UnicodeEncoding();
-                System.IO.File.WriteAllText(saveFile.FileName, comment_box.Text + Environment.NewLine + log.Text, unicode);
+                string comment = (comment_box.Text == "") ? comment = "COMMENT!" : comment = comment_box.Text;
+                System.IO.File.WriteAllText(saveFile.FileName, comment + Environment.NewLine + log.Text, unicode);
+                this.fileName = saveFile.FileName;
             }
         }
 
         private void sCENEToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the selected flow element before attempting to create another flow element!", "Update!");
+                return;
+            }
             int max = 0;
             if (collection.Count > 0) max = collection.Keys.Max() + 1;
-            Labels scene = new Labels("SCENE", max, "", 0, 0, 0, 0, point, new List<string[]> { new string[] { (max + 1).ToString(), "1" } }, new List<string[]> { });
+            Labels scene = new Labels("SCENE", max, "", 0, 0, 0, 0, point, new List<string[]> { new string[] { max.ToString(), "1" } }, new List<string[]> { });
             collection.Add(max, scene);
             TextBox sceneButton = scene.drawSceneButton();
 
@@ -2455,6 +2138,15 @@ namespace FCF_Editor
 
             flowLayout.Controls.Add(sceneButton);
             flowLayout.Refresh();
+
+            currentLabel = new Labels(scene);
+            previousID = currentLabel.id;
+            previousType = currentLabel.type;
+            edit_properties(sceneButton);
+            sceneButton.Focus();
+            update.Enabled = true;
+
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         void Button_KeyDown(object sender, KeyEventArgs e)
@@ -2482,6 +2174,7 @@ namespace FCF_Editor
                 clearProperties();
                 delete_line(int.Parse(data[1]));
 
+                //update.Enabled = false;
                 flowLayout.Refresh();
             }
             else return;
@@ -2489,9 +2182,16 @@ namespace FCF_Editor
 
         private void sELECTERToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the selected flow element before attempting to create another flow element!", "Update!");
+                return;
+            }
             int max = 0;
             if (collection.Count > 0) max = collection.Keys.Max() + 1;
-            Labels selecter = new Labels("SELECTER", max, "", 0, 0, 0, 0, point, new List<string[]> { });
+            Labels selecter;
+            if (format == "FHA") selecter = new Labels("SELECTER", max, "", 0, 0, 0, 0, new List<string[]> { }, new List<string[]> { });
+            else selecter = new Labels("SELECTER", max, "", 0, 0, 0, 0, point, new List<string[]> { });
             collection.Add(max, selecter);
             TextBox selecterButton = selecter.drawSelecterButton();
 
@@ -2505,10 +2205,24 @@ namespace FCF_Editor
 
             flowLayout.Controls.Add(selecterButton);
             flowLayout.Refresh();
+
+            currentLabel = new Labels(selecter);
+            previousID = currentLabel.id;
+            previousType = currentLabel.type;
+            edit_properties(selecterButton);
+            selecterButton.Focus();
+            update.Enabled = true;
+
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         private void oUTERLABELToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (update.Enabled)
+            {
+                MessageBox.Show("Update the selected flow element before attempting to create another flow element!", "Update!");
+                return;
+            }
             int max = 0;
             if (collection.Count > 0) max = collection.Keys.Max() + 1;
             Labels outerlabel = new Labels("OUTERLABEL", max, 0, 0, 0, 0, point, "", 0);
@@ -2525,6 +2239,15 @@ namespace FCF_Editor
 
             flowLayout.Controls.Add(outerlabel_Button);
             flowLayout.Refresh();
+
+            currentLabel = new Labels(outerlabel);
+            previousID = currentLabel.id;
+            previousType = currentLabel.type;
+            edit_properties(outerlabel_Button);
+            outerlabel_Button.Focus();
+            update.Enabled = true;
+
+            if (ChangesMade != true) ChangesMade = true;
         }
 
         private void properties_title_TextChanged(object sender, EventArgs e)
@@ -2539,13 +2262,13 @@ namespace FCF_Editor
                 letter = ((TextBox)sender).Text.Substring(x, 1);
                 if (charactersDisallowed.Contains(letter))
                 {
-                    text = text.Replace(letter, String.Empty);
+                    text = text.Replace(letter, "'");
                     change = 1;
                 }
             }
 
             ((TextBox)sender).Text = text;
-            ((TextBox)sender).Select(selectionIndex - change, 0);
+            ((TextBox)sender).Select(selectionIndex + change, 0);
 
             if (((TextBox)sender).Text != "")
             {
@@ -2636,24 +2359,26 @@ namespace FCF_Editor
 
         private void MainForm_DragDrop(object sender, DragEventArgs e)
         {
-            clearEverything();
+            if (clearEverything(true))
+            {
 
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if (files.Length > 1)
-            {
-                MessageBox.Show("Wait up a second! My small brain possible can't read through multiple files at the same time! That's absurd!!! \nPlease, give me only one file to eat, else I blow up!", "Brain too slow to read " + files.Length + " files...");
-                return;
-            }
-            foreach (string file in files)
-            {
-                Console.WriteLine("Reading: " + file);
-                if (file.EndsWith(".fcf")) { readFile(file); }
-                else
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files.Length > 1)
                 {
-                    string[] errorFile = file.Split('.');
-                    MessageBox.Show("What is this stuff you're feeding me?! I only eat top-class Flowcharts and TypeMoon variables!\nRest goes all over my small head... So, please feed me '.fcf' files only!", "Can't comprehend ." + errorFile[errorFile.Length - 1] + " file...");
+                    MessageBox.Show("Wait up a second! My small brain possible can't read through multiple files at the same time! That's absurd!!! \nPlease, give me only one file to eat, else I blow up!", "Brain too slow to read " + files.Length + " files...");
+                    return;
                 }
-                return;
+                foreach (string file in files)
+                {
+                    Console.WriteLine("Reading: " + file);
+                    if (file.EndsWith(".fcf")) { readFile(file); }
+                    else
+                    {
+                        string[] errorFile = file.Split('.');
+                        MessageBox.Show("What is this stuff you're feeding me?! I only eat top-class Flowcharts and TypeMoon variables!\nRest goes all over my small head... So, please feed me '.fcf' files only!", "Can't comprehend ." + errorFile[errorFile.Length - 1] + " file...");
+                    }
+                    return;
+                }
             }
         }
 
@@ -2705,23 +2430,46 @@ namespace FCF_Editor
         /// of the mouse cursor, calculates the new location and moves the control to the new location.
         /// </summary>
         /// <param name="PassControl">The control to be moved.</param>
-        /// <param name="MoveOffset">How much to move.</param>
+        /// <param name="MousePoint">The current location of the mouse cursor.</param>
         /// <remarks></remarks>
-        private void MoveControl(Control PassControl, Point MoveOffset)
+
+        private void CheckControl(Control PassControl, Point MousePoint)
         {
+            int MoveX = 0;
+            int MoveY = 0;
+            Point oldPoint = new Point(PassControl.Location.X, PassControl.Location.Y);
+
+            //Get the controls current starting location
+            // we will be moving it from this location to the new one if there is a new one
+            int intNewButtonLocationX = PassControl.Location.X;
+            int intNewButtonLocationY = PassControl.Location.Y;
+
+            //if (MousePoint.X > (PassControl.Width / 2)) MoveX = MousePoint.X;
+            //if (MousePoint.X < (PassControl.Width / 2)) MoveX = MousePoint.X;
+            //if (MousePoint.Y > (PassControl.Height / 2)) MoveY = MousePoint.Y;
+            //if (MousePoint.Y < (PassControl.Height / 2)) MoveY = MousePoint.Y;
+
+            MoveX = MousePoint.X;
+            MoveY = MousePoint.Y;
+
             //No need to perform any of the moving methods if the control isn't moving
-            if (!(MoveOffset.X == 0 && MoveOffset.Y == 0))
+
+            if (!(MoveX == 0 && MoveY == 0))
             {
                 //set the button new x coordinate
-                int intNewButtonLocationX = PassControl.Location.X + MoveOffset.X;
-                int intNewButtonLocationY = PassControl.Location.Y + MoveOffset.Y;
+                intNewButtonLocationX += MoveX;
+                intNewButtonLocationY += MoveY;
 
-                //check for top left edge of the client area. Bottom right is infinite because the control auto scrolls.
-                if (intNewButtonLocationX < 5) intNewButtonLocationX = 5;
-                if (intNewButtonLocationY < 5) intNewButtonLocationY = 5;
+                //check for the edge of the client area
+                intNewButtonLocationX = GetEdgeOfWindow(intNewButtonLocationX, this.ClientSize.Width, PassControl.Width, (MoveX > 0));
+                intNewButtonLocationY = GetEdgeOfWindow(intNewButtonLocationY, this.ClientSize.Height, PassControl.Height, (MoveY > 0));
 
                 //assign new control location
                 PassControl.Location = new Point(intNewButtonLocationX, intNewButtonLocationY);
+
+                //debug.Text = "" + (intNewButtonLocationX - oldPoint.X);
+                //if (intNewButtonLocationX >= flowLayout.Height) flowLayout.VerticalScroll.Value += (intNewButtonLocationX - oldPoint.X);
+                //if (intNewButtonLocationY >= flowLayout.Width) flowLayout.HorizontalScroll.Value += (intNewButtonLocationY - oldPoint.Y);
             }
         }
 
@@ -2778,10 +2526,37 @@ namespace FCF_Editor
             }
         }
 
-        private void update_EnabledChanged(object sender, EventArgs e)
+        private void removeButton_Click(object sender, EventArgs e)
         {
-            if (update.Enabled) allowMoving = false;
-            else allowMoving = true;
+            delete_box(FindControlByName(currentLabel.type + "_" + currentLabel.id, flowLayout) as TextBox);
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            save(true, false);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ChangesMade && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult dialog = MessageBox.Show("Some changes have been made, which aren't saved yet... Do you want to save them before closing?", "Unsaved changes!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (dialog == DialogResult.Yes)
+                {
+                    if (!save(false, true)) e.Cancel = true;
+                }
+                else if (dialog == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            currentLabel = collection[currentLabel.id];
+            edit_properties((TextBox)FindControlByName(currentLabel.type + "_" + currentLabel.id, flowLayout));
+            update.Enabled = false;
         }
     }
 }

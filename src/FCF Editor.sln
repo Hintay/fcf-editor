@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCF Editor", "FCF Editor\FCF Editor.csproj", "{E32B54C4-FE48-47D1-9CE6-E0D80ED6C09F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCF Editor", "FCF Editor\FCF Editor.csproj", "{DD0C87FC-AC59-4D0F-9538-1EBF9FB63E3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E32B54C4-FE48-47D1-9CE6-E0D80ED6C09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E32B54C4-FE48-47D1-9CE6-E0D80ED6C09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E32B54C4-FE48-47D1-9CE6-E0D80ED6C09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E32B54C4-FE48-47D1-9CE6-E0D80ED6C09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0C87FC-AC59-4D0F-9538-1EBF9FB63E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0C87FC-AC59-4D0F-9538-1EBF9FB63E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0C87FC-AC59-4D0F-9538-1EBF9FB63E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0C87FC-AC59-4D0F-9538-1EBF9FB63E3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
