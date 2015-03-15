@@ -310,6 +310,9 @@ namespace FCF_Editor
                 int r = int.Parse(pm[4]); // RIGHT
                 int b = int.Parse(pm[5]); // BOTTOM
 
+                //Use center-based coordinates because the size of the element is different, we want it to stay aligned relative to its center.
+                var cp = centerPoint(l, t, r - l, b - t);
+
                 switch (pm[0])
                 {
                     case "SCENE":
@@ -366,7 +369,7 @@ namespace FCF_Editor
 
                         TextBox sceneButton = scene.drawSceneButton();
 
-                        sceneButton.Location = centerPoint(l, t, r - l, b - t);
+                        setLocationFromCenterPoint(sceneButton, cp);
 
                         sceneButton.MouseDown += box_MouseDown;
                         sceneButton.MouseUp += box_MouseUp;
@@ -413,7 +416,7 @@ namespace FCF_Editor
                         else selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, alts);
                         TextBox selecterButton = selecter.drawSelecterButton();
 
-                        selecterButton.Location = centerPoint(l, t, r - l, b - t);
+                        setLocationFromCenterPoint(selecterButton, cp);
 
                         selecterButton.Click += new EventHandler(box_Click);
                         selecterButton.MouseDown += box_MouseDown;
@@ -428,7 +431,7 @@ namespace FCF_Editor
                         Labels outerlabel = new Labels(pm[0], int.Parse(pm[1]), int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, pm[10], int.Parse(pm[11]));
                         TextBox outerlabel_Button = outerlabel.drawOuterLabel();
 
-                        outerlabel_Button.Location = centerPoint(l, t, r - l, b - t);
+                        setLocationFromCenterPoint(outerlabel_Button, cp);
 
                         outerlabel_Button.Click += new EventHandler(box_Click);
                         outerlabel_Button.MouseDown += box_MouseDown;
@@ -480,6 +483,11 @@ namespace FCF_Editor
                 properties_jumpTarget.Items.Add(item.Key);
             }
 
+        }
+
+        private void setLocationFromCenterPoint(Control ctrl, Point cp)
+        {
+            ctrl.Location = new Point(cp.X - ctrl.Width/2, cp.Y - ctrl.Height/2);
         }
 
         private Point centerPoint(int x, int y, int w, int h)
@@ -2389,24 +2397,24 @@ namespace FCF_Editor
         /// This method checks to see if the control needs to be moved based on the current location
         /// of the mouse cursor, calculates the new location and moves the control to the new location.
         /// </summary>
-        /// <param name="PassControl">The control to be moved.</param>
-        /// <param name="MoveOffset">How much to move.</param>
+        /// <param name="ctrl">The control to be moved.</param>
+        /// <param name="moveOffset">How much to move.</param>
         /// <remarks></remarks>
-        private void MoveControl(Control PassControl, Point MoveOffset)
+        private void MoveControl(Control ctrl, Point moveOffset)
         {
             //No need to perform any of the moving methods if the control isn't moving
-            if (!(MoveOffset.X == 0 && MoveOffset.Y == 0))
+            if (!(moveOffset.X == 0 && moveOffset.Y == 0))
             {
                 //set the button new x coordinate
-                int intNewButtonLocationX = PassControl.Location.X + MoveOffset.X;
-                int intNewButtonLocationY = PassControl.Location.Y + MoveOffset.Y;
+                int newX = ctrl.Location.X + moveOffset.X;
+                int newY = ctrl.Location.Y + moveOffset.Y;
 
                 //check for top left edge of the client area. Bottom right is infinite because the control auto scrolls.
-                if (intNewButtonLocationX < 5) intNewButtonLocationX = 5;
-                if (intNewButtonLocationY < 5) intNewButtonLocationY = 5;
+                if (newX < 5) newX = 5;
+                if (newY < 5) newY = 5;
 
                 //assign new control location
-                PassControl.Location = new Point(intNewButtonLocationX, intNewButtonLocationY);
+                ctrl.Location = new Point(newX, newY);
             }
         }
 
