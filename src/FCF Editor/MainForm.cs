@@ -22,6 +22,7 @@ namespace FCF_Editor
         private int previousID;
         private string previousType;
         private Point point;
+        private Point mouseDownCoords;
 
         private string charactersDisallowed = "'";
         private string numbersAllowed = "0123456789";
@@ -590,6 +591,8 @@ namespace FCF_Editor
                     currentLabel = new Labels(label.Value); // label.Value.Clone() as Labels;
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
+                    mouseDownCoords.X = e.Location.X;
+                    mouseDownCoords.Y = e.Location.Y;
                     break;
                 }
             }
@@ -606,7 +609,7 @@ namespace FCF_Editor
             //activeControl.Location = location;
             ((TextBox)sender).SelectionLength = 0;
 
-            CheckControl((TextBox)sender, e.Location);
+            MoveControl((TextBox)sender, new Point(e.Location.X - mouseDownCoords.X, e.Location.Y - mouseDownCoords.Y));
 
             //debug.Text = ((TextBox)sender).Left + "|" + flowLayout.Width;
             //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top + " | " + flowLayout.VerticalScroll.Value;
@@ -2383,93 +2386,27 @@ namespace FCF_Editor
         }
 
         /// <summary>
-        /// Determines whether the new coordinate is still within the client area or not. Then calculates what it 
-        /// should be based on how it is being moved.
-        /// </summary>
-        /// <param name="intLocationValue">The controls location coordinate.</param>
-        /// <param name="intClientSizeValue">The client areas size value.</param>
-        /// <param name="intControlSizeValue">The controls size value.</param>
-        /// <param name="IsPositive">Whether or not the control is moving positively or negatively across the client area.</param>
-        /// <returns></returns>
-        /// <remarks></remarks>
-        private int GetEdgeOfWindow(int intLocationValue, int intClientSizeValue, int intControlSizeValue, bool IsPositive)
-        {
-            int ReturnInt = intLocationValue;
-            int CompareValue = 0;
-
-            //determine if our compare value is going to be from the right/bottom or left/top
-            // the reason that these are different is that in the case of the right/bottom the height/width
-            // of the control comes into play on determining when to move the control to the other side of
-            // the client area
-            if (IsPositive)
-            {
-                CompareValue = (intLocationValue + intControlSizeValue) + 5;
-            }
-            else
-            {
-                CompareValue = intLocationValue;
-            }
-
-            //we want to return the coordinate on the oppposite side of the screen 
-            if (CompareValue < 5)
-            {
-                //top -> bottom, left -> right
-                ReturnInt = 5;
-            }
-            //else if (CompareValue > intClientSizeValue)
-            //{
-            //    //bottom -> top, right -> left
-            //    ReturnInt = intClientSizeValue - (intControlSizeValue + 20);
-            //}
-            return ReturnInt;
-        }
-
-
-        /// <summary>
         /// This method checks to see if the control needs to be moved based on the current location
         /// of the mouse cursor, calculates the new location and moves the control to the new location.
         /// </summary>
         /// <param name="PassControl">The control to be moved.</param>
-        /// <param name="MousePoint">The current location of the mouse cursor.</param>
+        /// <param name="MoveOffset">How much to move.</param>
         /// <remarks></remarks>
-
-        private void CheckControl(Control PassControl, Point MousePoint)
+        private void MoveControl(Control PassControl, Point MoveOffset)
         {
-            int MoveX = 0;
-            int MoveY = 0;
-            Point oldPoint = new Point(PassControl.Location.X, PassControl.Location.Y);
-
-            //Get the controls current starting location
-            // we will be moving it from this location to the new one if there is a new one
-            int intNewButtonLocationX = PassControl.Location.X;
-            int intNewButtonLocationY = PassControl.Location.Y;
-
-            //if (MousePoint.X > (PassControl.Width / 2)) MoveX = MousePoint.X;
-            //if (MousePoint.X < (PassControl.Width / 2)) MoveX = MousePoint.X;
-            //if (MousePoint.Y > (PassControl.Height / 2)) MoveY = MousePoint.Y;
-            //if (MousePoint.Y < (PassControl.Height / 2)) MoveY = MousePoint.Y;
-
-            MoveX = MousePoint.X;
-            MoveY = MousePoint.Y;
-
             //No need to perform any of the moving methods if the control isn't moving
-
-            if (!(MoveX == 0 && MoveY == 0))
+            if (!(MoveOffset.X == 0 && MoveOffset.Y == 0))
             {
                 //set the button new x coordinate
-                intNewButtonLocationX += MoveX;
-                intNewButtonLocationY += MoveY;
+                int intNewButtonLocationX = PassControl.Location.X + MoveOffset.X;
+                int intNewButtonLocationY = PassControl.Location.Y + MoveOffset.Y;
 
-                //check for the edge of the client area
-                intNewButtonLocationX = GetEdgeOfWindow(intNewButtonLocationX, this.ClientSize.Width, PassControl.Width, (MoveX > 0));
-                intNewButtonLocationY = GetEdgeOfWindow(intNewButtonLocationY, this.ClientSize.Height, PassControl.Height, (MoveY > 0));
+                //check for top left edge of the client area. Bottom right is infinite because the control auto scrolls.
+                if (intNewButtonLocationX < 5) intNewButtonLocationX = 5;
+                if (intNewButtonLocationY < 5) intNewButtonLocationY = 5;
 
                 //assign new control location
                 PassControl.Location = new Point(intNewButtonLocationX, intNewButtonLocationY);
-
-                //debug.Text = "" + (intNewButtonLocationX - oldPoint.X);
-                //if (intNewButtonLocationX >= flowLayout.Height) flowLayout.VerticalScroll.Value += (intNewButtonLocationX - oldPoint.X);
-                //if (intNewButtonLocationY >= flowLayout.Width) flowLayout.HorizontalScroll.Value += (intNewButtonLocationY - oldPoint.Y);
             }
         }
 
