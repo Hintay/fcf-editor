@@ -23,6 +23,7 @@ namespace FCF_Editor
         private string previousType;
         private Point point;
         private Point mouseDownCoords;
+        private Point TopLeftOffset;
 
         private string charactersDisallowed = "'";
         private string numbersAllowed = "0123456789";
@@ -127,7 +128,7 @@ namespace FCF_Editor
             properties_file_target.Visible = false;
 
             currentLabel = null;
-
+            TopLeftOffset = new Point(0, 0);
             properties_jumpTarget_label.Text = "Default Jump Target:";
             flowLayout.Refresh();
 
@@ -462,15 +463,30 @@ namespace FCF_Editor
                 }
             }
 
-            if (xNegative.Count > 0 || yNegative.Count > 0)
+            TopLeftOffset.X = 0;
+            TopLeftOffset.Y = 0;
+
+            if (xNegative.Count > 0)
+            {
+                TopLeftOffset.X = xNegative.Min() - margin;
+            }
+            if (yNegative.Count > 0)
+            {
+                TopLeftOffset.Y = yNegative.Min() - margin;
+            }
+
+            if (TopLeftOffset.X != 0 || TopLeftOffset.Y != 0)
             {
                 foreach (var item in collection)
                 {
                     Control control = FindControlByName(item.Value.type + "_" + item.Key, flowLayout);
-                    if (xNegative.Count > 0) control.Left -= xNegative.Min() - margin;
-                    if (yNegative.Count > 0) control.Top -= yNegative.Min() - margin;
+                    control.Left -= TopLeftOffset.X;
+                    control.Top -= TopLeftOffset.Y;
+
+
                 }
             }
+
             flowLayout.Refresh();
         }
 
@@ -486,7 +502,7 @@ namespace FCF_Editor
 
         private void setLocationFromCenterPoint(Control ctrl, Point cp)
         {
-            ctrl.Location = new Point(cp.X - ctrl.Width/2, cp.Y - ctrl.Height/2);
+            ctrl.Location = new Point(cp.X - ctrl.Width / 2, cp.Y - ctrl.Height / 2);
         }
 
         private Point centerPoint(Control ctrl)
@@ -647,10 +663,10 @@ namespace FCF_Editor
                     string[] lineData = lineSplit[1].Split(new string[] { "'" }, StringSplitOptions.None);
                     if (int.Parse(lineData[1]) == previousID && lineData[0] == previousType) //if (int.Parse(lineData[1]) == currentLabel.id && lineData[0] == currentLabel.type)
                     {
-                        lineData[2] = currentLabel.left.ToString();
-                        lineData[3] = currentLabel.top.ToString();
-                        lineData[4] = currentLabel.right.ToString();
-                        lineData[5] = currentLabel.bottom.ToString();
+                        lineData[2] = (currentLabel.left + TopLeftOffset.X).ToString();
+                        lineData[3] = (currentLabel.top + TopLeftOffset.Y).ToString();
+                        lineData[4] = (currentLabel.right + TopLeftOffset.X).ToString();
+                        lineData[5] = (currentLabel.bottom + TopLeftOffset.Y).ToString();
 
                         lineSplit[1] = String.Join("'", lineData);
                         string lineString = String.Join(";", lineSplit);
@@ -720,8 +736,8 @@ namespace FCF_Editor
             properties_id.Text = "" + currentLabel.id;
             properties_type.SelectedItem = currentLabel.type;
             properties_title.Text = currentLabel.title;
-            properties_x.Text = "" + currentLabel.CenterLocation.X;
-            properties_y.Text = "" + currentLabel.CenterLocation.Y;
+            properties_x.Text = "" + (currentLabel.CenterLocation.X + TopLeftOffset.X);
+            properties_y.Text = "" + (currentLabel.CenterLocation.Y + TopLeftOffset.Y);
 
             switch (currentLabel.type)
             {
@@ -2274,64 +2290,60 @@ namespace FCF_Editor
             }
         }
 
-        private void properties_x_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="cursorPos"></param>
+        /// <returns>Returns the modified text and whether the character before the cursor position was deleted.</returns>
+        private Tuple<string,bool> stripNonNumbers(string text, int cursorPos)
         {
-            string text = ((TextBox)sender).Text;
-            string letter;
-            int selectionIndex = ((TextBox)sender).SelectionStart;
-            int change = 0;
+            bool change = false;
 
-            for (int x = 0; x <= ((TextBox)sender).Text.Length - 1; x++)
+            int x = 0;
+            //Check for negative sign
+            if (text.Length > 1 && text[x] == '-') x++;
+
+            for (; x <= text.Length - 1; x++)
             {
-                letter = ((TextBox)sender).Text.Substring(x, 1);
+                var letter = text[x];
                 if (!numbersAllowed.Contains(letter))
                 {
-                    text = text.Replace(letter, String.Empty);
-                    change = 1;
+                    text = text.Remove(x, 1);
+                    if (x == cursorPos - 1) change = true;
                 }
             }
 
-            ((TextBox)sender).Text = text;
-            ((TextBox)sender).Select(selectionIndex - change, 0);
+            return new Tuple<string,bool>(text,change);
+        }
 
-            if (((TextBox)sender).Text != "")
+        private void validateNumericTextBox(TextBox textbox)
+        {
+            var ret = stripNonNumbers(textbox.Text, textbox.SelectionStart);
+
+            var selectionIndex = textbox.SelectionStart; //Save selection before it is modified.
+            textbox.Text = ret.Item1;
+
+            if (ret.Item2) selectionIndex -= 1;
+            textbox.Select(selectionIndex, 0);
+
+            if (textbox.Text != "")
             {
-                if (currentLabel.left != int.Parse(((TextBox)sender).Text))
+                if (currentLabel.top != int.Parse(textbox.Text))
                 {
-                    currentLabel.left = int.Parse(((TextBox)sender).Text);
+                    currentLabel.top = int.Parse(textbox.Text);
                     update.Enabled = true;
                 }
             }
         }
+        private void properties_x_TextChanged(object sender, EventArgs e)
+        {
+            validateNumericTextBox((TextBox)sender);
+        }
 
         private void properties_y_TextChanged(object sender, EventArgs e)
         {
-            string text = ((TextBox)sender).Text;
-            string letter;
-            int selectionIndex = ((TextBox)sender).SelectionStart;
-            int change = 0;
-
-            for (int x = 0; x <= ((TextBox)sender).Text.Length - 1; x++)
-            {
-                letter = ((TextBox)sender).Text.Substring(x, 1);
-                if (!numbersAllowed.Contains(letter))
-                {
-                    text = text.Replace(letter, String.Empty);
-                    change = 1;
-                }
-            }
-
-            ((TextBox)sender).Text = text;
-            ((TextBox)sender).Select(selectionIndex - change, 0);
-
-            if (((TextBox)sender).Text != "")
-            {
-                if (currentLabel.top != int.Parse(((TextBox)sender).Text))
-                {
-                    currentLabel.top = int.Parse(((TextBox)sender).Text);
-                    update.Enabled = true;
-                }
-            }
+            validateNumericTextBox((TextBox)sender);
         }
 
         private void MainForm_DragEnter(object sender, DragEventArgs e)

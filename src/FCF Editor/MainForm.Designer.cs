@@ -88,6 +88,7 @@ namespace FCF_Editor
             this.sELECTERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oUTERLABELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.flowLayout = new System.Windows.Forms.Panel();
             this.log = new System.Windows.Forms.TextBox();
             this.comment_box = new System.Windows.Forms.TextBox();
@@ -96,7 +97,6 @@ namespace FCF_Editor
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.debug = new System.Windows.Forms.ToolStripStatusLabel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SC)).BeginInit();
             this.SC.Panel1.SuspendLayout();
@@ -106,11 +106,11 @@ namespace FCF_Editor
             this.flagOperations.SuspendLayout();
             this.checkFlags.SuspendLayout();
             this.addLabelsInPanel.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -633,7 +633,7 @@ namespace FCF_Editor
             this.properties_x.Enabled = false;
             this.properties_x.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.properties_x.Location = new System.Drawing.Point(62, 147);
-            this.properties_x.MaxLength = 4;
+            this.properties_x.MaxLength = 5;
             this.properties_x.Name = "properties_x";
             this.properties_x.Size = new System.Drawing.Size(58, 23);
             this.properties_x.TabIndex = 3;
@@ -644,7 +644,7 @@ namespace FCF_Editor
             this.properties_y.Enabled = false;
             this.properties_y.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.properties_y.Location = new System.Drawing.Point(167, 147);
-            this.properties_y.MaxLength = 4;
+            this.properties_y.MaxLength = 5;
             this.properties_y.Name = "properties_y";
             this.properties_y.Size = new System.Drawing.Size(61, 23);
             this.properties_y.TabIndex = 2;
@@ -709,6 +709,29 @@ namespace FCF_Editor
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.refreshToolStripMenuItem.Text = "&Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayout);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel2.Controls.Add(this.log);
+            this.splitContainer1.Panel2.Controls.Add(this.comment_box);
+            this.splitContainer1.Size = new System.Drawing.Size(683, 676);
+            this.splitContainer1.SplitterDistance = 417;
+            this.splitContainer1.TabIndex = 10;
             // 
             // flowLayout
             // 
@@ -789,29 +812,6 @@ namespace FCF_Editor
             this.debug.Size = new System.Drawing.Size(113, 20);
             this.debug.Text = "                          ";
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.flowLayout);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel2.Controls.Add(this.log);
-            this.splitContainer1.Panel2.Controls.Add(this.comment_box);
-            this.splitContainer1.Size = new System.Drawing.Size(683, 676);
-            this.splitContainer1.SplitterDistance = 417;
-            this.splitContainer1.TabIndex = 10;
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -845,14 +845,14 @@ namespace FCF_Editor
             this.flagOperations.ResumeLayout(false);
             this.checkFlags.ResumeLayout(false);
             this.addLabelsInPanel.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
