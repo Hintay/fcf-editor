@@ -305,15 +305,15 @@ namespace FCF_Editor
                 pm[1] = pm[1].Replace("\\'", "`"); // For FHA \' compatibility!
                 pm = pm[1].Split(new string[] { "'" }, StringSplitOptions.RemoveEmptyEntries);
 
+                //Values common to all types
+                var lineType = pm[0];
+                var id = int.Parse(pm[1]);
                 int l = int.Parse(pm[2]); // LEFT
                 int t = int.Parse(pm[3]); // TOP
                 int r = int.Parse(pm[4]); // RIGHT
                 int b = int.Parse(pm[5]); // BOTTOM
 
-                //Use center-based coordinates because the size of the element is different, we want it to stay aligned relative to its center.
-                var cp = centerPoint(l, t, r - l, b - t);
-
-                switch (pm[0])
+                switch (lineType)
                 {
                     case "SCENE":
                         int njumps = int.Parse(pm[11]);
@@ -342,7 +342,6 @@ namespace FCF_Editor
                             }
                             else
                             {
-                                //string id = pm[1];
                                 string linkType = jumpSplit[1];
                                 string target = jumpSplit[2];
                                 jumps.Add(new string[] { target, linkType });
@@ -365,11 +364,11 @@ namespace FCF_Editor
 
                         }
 
-                        Labels scene = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, jumps, flagOperations);
+                        Labels scene = new Labels(lineType, id, pm[10], l, t, r, b, point, jumps, flagOperations);
 
                         TextBox sceneButton = scene.drawSceneButton();
 
-                        setLocationFromCenterPoint(sceneButton, cp);
+                        setLocationFromCenterPoint(sceneButton, scene.CenterLocation);
 
                         sceneButton.MouseDown += box_MouseDown;
                         sceneButton.MouseUp += box_MouseUp;
@@ -377,7 +376,7 @@ namespace FCF_Editor
                         sceneButton.Click += new EventHandler(box_Click);
                         sceneButton.KeyDown += Button_KeyDown;
 
-                        collection.Add(int.Parse(pm[1]), scene);
+                        collection.Add(id, scene);
                         flowLayout.Controls.Add(sceneButton);
                         break;
 
@@ -412,11 +411,11 @@ namespace FCF_Editor
                             alts.Add(new String[] { text, target });
                         }
                         Labels selecter;
-                        if (format == "FHA") selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), alts, check);
-                        else selecter = new Labels(pm[0], int.Parse(pm[1]), pm[10], int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, alts);
+                        if (format == "FHA") selecter = new Labels(lineType, id, pm[10], l, t, r, b, alts, check);
+                        else selecter = new Labels(lineType, id, pm[10], l, t, r, b, point, alts);
                         TextBox selecterButton = selecter.drawSelecterButton();
 
-                        setLocationFromCenterPoint(selecterButton, cp);
+                        setLocationFromCenterPoint(selecterButton, selecter.CenterLocation);
 
                         selecterButton.Click += new EventHandler(box_Click);
                         selecterButton.MouseDown += box_MouseDown;
@@ -424,14 +423,14 @@ namespace FCF_Editor
                         selecterButton.MouseMove += box_MouseMove;
                         selecterButton.KeyDown += Button_KeyDown;
 
-                        collection.Add(int.Parse(pm[1]), selecter);
+                        collection.Add(id, selecter);
                         flowLayout.Controls.Add(selecterButton);
                         break;
                     case "OUTERLABEL":
-                        Labels outerlabel = new Labels(pm[0], int.Parse(pm[1]), int.Parse(pm[2]), int.Parse(pm[3]), int.Parse(pm[4]), int.Parse(pm[5]), point, pm[10], int.Parse(pm[11]));
+                        Labels outerlabel = new Labels(lineType, id, l, t, r, b, point, pm[10], int.Parse(pm[11]));
                         TextBox outerlabel_Button = outerlabel.drawOuterLabel();
 
-                        setLocationFromCenterPoint(outerlabel_Button, cp);
+                        setLocationFromCenterPoint(outerlabel_Button, outerlabel.CenterLocation);
 
                         outerlabel_Button.Click += new EventHandler(box_Click);
                         outerlabel_Button.MouseDown += box_MouseDown;
@@ -439,7 +438,7 @@ namespace FCF_Editor
                         outerlabel_Button.MouseMove += box_MouseMove;
                         outerlabel_Button.KeyDown += Button_KeyDown;
 
-                        collection.Add(int.Parse(pm[1]), outerlabel);
+                        collection.Add(id, outerlabel);
                         flowLayout.Controls.Add(outerlabel_Button);
                         break;
                 }
@@ -490,10 +489,9 @@ namespace FCF_Editor
             ctrl.Location = new Point(cp.X - ctrl.Width/2, cp.Y - ctrl.Height/2);
         }
 
-        private Point centerPoint(int x, int y, int w, int h)
+        private Point centerPoint(Control ctrl)
         {
-            Point cp = new Point(x + (w / 2), y + (h / 2));
-            return cp;
+            return new Point(ctrl.Left + (ctrl.Width / 2), ctrl.Top + (ctrl.Height / 2));
         }
 
         private void flowLayout_Paint(object sender, PaintEventArgs e)
@@ -599,8 +597,7 @@ namespace FCF_Editor
                     currentLabel = new Labels(label.Value); // label.Value.Clone() as Labels;
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
-                    mouseDownCoords.X = e.Location.X;
-                    mouseDownCoords.Y = e.Location.Y;
+                    mouseDownCoords = e.Location;
                     break;
                 }
             }
@@ -617,22 +614,8 @@ namespace FCF_Editor
             //activeControl.Location = location;
             ((TextBox)sender).SelectionLength = 0;
 
-            MoveControl((TextBox)sender, new Point(e.Location.X - mouseDownCoords.X, e.Location.Y - mouseDownCoords.Y));
-
-            //debug.Text = ((TextBox)sender).Left + "|" + flowLayout.Width;
-            //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top + " | " + flowLayout.VerticalScroll.Value;
-            if (((TextBox)sender).Left > flowLayout.Width || flowLayout.HorizontalScroll.Value > 0)
-            {
-                currentLabel.left = ((TextBox)sender).Left + (flowLayout.HorizontalScroll.Maximum - flowLayout.Width);
-            }
-            else currentLabel.left = ((TextBox)sender).Left;
-            if (((TextBox)sender).Top > flowLayout.Height || flowLayout.VerticalScroll.Value > 0)
-            {
-                currentLabel.top = ((TextBox)sender).Top + (flowLayout.VerticalScroll.Maximum - flowLayout.Height);
-            }
-            else currentLabel.top = ((TextBox)sender).Top;
-            currentLabel.right = currentLabel.left + 30;
-            currentLabel.bottom = currentLabel.top + 16;
+            MoveControl((TextBox)sender, e.Location.X - mouseDownCoords.X, e.Location.Y - mouseDownCoords.Y);
+            currentLabel.CenterLocation = centerPoint((TextBox)sender);
             if (currentLabel is Labels) update_position();//update_line();
             //edit_properties((TextBox)sender);
 
@@ -718,19 +701,7 @@ namespace FCF_Editor
                     previousID = currentLabel.id;
                     previousType = currentLabel.type;
 
-                    //debug.Text = "X: " + ((TextBox)sender).Left + ", Y: " + ((TextBox)sender).Top + " | " + flowLayout.VerticalScroll.Value;
-                    if (((TextBox)sender).Left > flowLayout.Width || flowLayout.HorizontalScroll.Value > 0)
-                    {
-                        currentLabel.left = ((TextBox)sender).Left + (flowLayout.HorizontalScroll.Maximum - flowLayout.Width);
-                    }
-                    else currentLabel.left = ((TextBox)sender).Left;
-                    if (((TextBox)sender).Top > flowLayout.Height || flowLayout.VerticalScroll.Value > 0)
-                    {
-                        currentLabel.top = ((TextBox)sender).Top + (flowLayout.VerticalScroll.Maximum - flowLayout.Height);
-                    }
-                    else currentLabel.top = ((TextBox)sender).Top;
-                    currentLabel.right = currentLabel.left + 30;
-                    currentLabel.bottom = currentLabel.top + 16;
+                    currentLabel.CenterLocation = centerPoint((TextBox)sender);
                     update_position();
 
                     edit_properties((TextBox)sender);
@@ -749,8 +720,8 @@ namespace FCF_Editor
             properties_id.Text = "" + currentLabel.id;
             properties_type.SelectedItem = currentLabel.type;
             properties_title.Text = currentLabel.title;
-            properties_x.Text = "" + label.Left;
-            properties_y.Text = "" + label.Top;
+            properties_x.Text = "" + currentLabel.CenterLocation.X;
+            properties_y.Text = "" + currentLabel.CenterLocation.Y;
 
             switch (currentLabel.type)
             {
@@ -2400,14 +2371,14 @@ namespace FCF_Editor
         /// <param name="ctrl">The control to be moved.</param>
         /// <param name="moveOffset">How much to move.</param>
         /// <remarks></remarks>
-        private void MoveControl(Control ctrl, Point moveOffset)
+        private void MoveControl(Control ctrl, int offsetX, int offsetY)
         {
             //No need to perform any of the moving methods if the control isn't moving
-            if (!(moveOffset.X == 0 && moveOffset.Y == 0))
+            if (!(offsetX == 0 && offsetY == 0))
             {
                 //set the button new x coordinate
-                int newX = ctrl.Location.X + moveOffset.X;
-                int newY = ctrl.Location.Y + moveOffset.Y;
+                int newX = ctrl.Location.X + offsetX;
+                int newY = ctrl.Location.Y + offsetY;
 
                 //check for top left edge of the client area. Bottom right is infinite because the control auto scrolls.
                 if (newX < 5) newX = 5;

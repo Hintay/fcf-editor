@@ -28,6 +28,28 @@ namespace FCF_Editor
         public int bottom;
         public List<String[]> jumps;
         public List<String[]> flagOperations;
+                
+        //Use center-based coordinates because the size of the element is different, we want it to stay aligned relative to its center.
+        public Point CenterLocation
+        {
+            get { return new Point((left + right) / 2, (top + bottom) / 2); }
+            set
+            {
+                //If width is odd, the centerpoint is 0.5 too low. Also w/2 is 0.5 too low.
+                //When translating back, the two 0.5 errors add up on the right and cancel on the left.
+                //So we just add the remainder to the right.
+                var remainderX = (left + right) % 2;
+                var halfw = (right - left) / 2;
+                left = value.X - halfw;
+                right = value.X + halfw + remainderX;
+
+                //Repeat for top/bottom
+                var remainderY = (top + bottom) % 2;
+                var halfh = (bottom - top) / 2;
+                top = value.Y - halfh;
+                bottom = value.Y + halfh + remainderY;
+            }
+        }
 
         /// <summary>
         /// Alternative choices, used in Selecters.
