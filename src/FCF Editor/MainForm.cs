@@ -2325,25 +2325,38 @@ namespace FCF_Editor
             textbox.Text = ret.Item1;
 
             if (ret.Item2) selectionIndex -= 1;
-            textbox.Select(selectionIndex, 0);
+            textbox.Select(selectionIndex, 0);                        
+        }
+        private void properties_x_TextChanged(object sender, EventArgs e)
+        {
+            var textbox = (TextBox)sender;
+            validateNumericTextBox(textbox);
 
             if (textbox.Text != "")
             {
-                if (currentLabel.top != int.Parse(textbox.Text))
+                var newX = int.Parse(textbox.Text);
+                if (currentLabel.CenterLocation.X != newX)
                 {
-                    currentLabel.top = int.Parse(textbox.Text);
+                    currentLabel.CenterLocation = new Point(newX, currentLabel.CenterLocation.Y);
                     update.Enabled = true;
                 }
             }
         }
-        private void properties_x_TextChanged(object sender, EventArgs e)
-        {
-            validateNumericTextBox((TextBox)sender);
-        }
 
         private void properties_y_TextChanged(object sender, EventArgs e)
         {
-            validateNumericTextBox((TextBox)sender);
+            var textbox = (TextBox)sender;
+            validateNumericTextBox(textbox);
+
+            if (textbox.Text != "")
+            {
+                var newY = int.Parse(textbox.Text);
+                if (currentLabel.CenterLocation.Y != newY)
+                {
+                    currentLabel.CenterLocation = new Point(currentLabel.CenterLocation.X, newY);
+                    update.Enabled = true;
+                }
+            }
         }
 
         private void MainForm_DragEnter(object sender, DragEventArgs e)
