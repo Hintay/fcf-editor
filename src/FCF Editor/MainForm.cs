@@ -353,7 +353,7 @@ namespace FCF_Editor
                         List<String[]> flagOperations = new List<String[]>();
                         if (nflagOperations != 0)
                         {
-                            for (int i = 1; i == nflagOperations; i++)
+                            for (int i = 1; i <= nflagOperations; i++)
                             {
                                 string[] flag = flagOperation[i].Split(new string[] { "//" }, StringSplitOptions.None);
                                 string flagName = flag[0];
