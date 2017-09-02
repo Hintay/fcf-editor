@@ -62,7 +62,7 @@ namespace FCF_Editor
         /// </remarks>
         public List<String[]> alts;
         public string file;
-        public int target;
+        public int? target;
 
         //public List<String[]> checks; // For FHA SELECTERs
         # endregion
@@ -107,7 +107,7 @@ namespace FCF_Editor
         /// </summary>
         /// <remarks>Assigns all the passed parameters to the public variables.</remarks>
         /// <param name="type">Specifies the Type. It's "OUTERLABEL" in this case.</param>
-        public Labels(string type, int id, int left, int top, int right, int bottom, Point point, string file, int target)
+        public Labels(string type, int id, int left, int top, int right, int bottom, Point point, string file, int? target)
         {
             this.type = type;
             this.id = id;
