@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms.Design;
 using System.ComponentModel.Design;
-using System.Diagnostics;
 
 namespace FCF_Editor
 {
